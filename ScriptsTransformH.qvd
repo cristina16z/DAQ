@@ -46,7 +46,7 @@ Where CustomerID>0;
 Left Join(Customer)
 LOAD
     BusinessEntityID													as PersonID,
-    FirstName & ' ' & MiddleName & ' ' & LastName						as PersonName,	
+    FirstName & ' ' & MiddleName & ' ' & LastName						as PersonName	
 //   EmailPromotion														as EmailPromotion,														
 //    NameStyle															as StylePersonName,
 //    PersonType														as PersonType,
@@ -84,7 +84,7 @@ LOAD
     ParentEmployeeBusinessEntityID											as ParentSalesPersonID,
     SalariedFlag															as SalariedFlag,
     SalesPersonFlag															as SalesPersonFlag,
-    SalesTerritoryKey														as SalesTerritoryKey,
+    SalesTerritoryKey														as SalesTerritoryKey
 //    BaseRate																as BaseRate,
 //    BirthDate																as BirthDate,
 //    EmailAddress															as EmailAddress,
@@ -137,7 +137,7 @@ LOAD
     StandardCost															as StandardCost,
     ListPrice																as ListPrice,
     MakeFlag																as MakeFlag,
-    ProductLine																as ProductLine,
+    ProductLine																as ProductLine
 //    "Class"																as ProductClass,
 //    "Color"																as ProductColor,
 //    DaysToManufacture														as DaysToManufacture,
@@ -194,7 +194,7 @@ LOAD
     BusinessEntityID 														    as VendorID,
     AverageLeadTime															    as AverageLeadTime,
     ProductID																    as ProductID,
-    StandardPrice															    as StandardPrice,
+    StandardPrice															    as StandardPrice
 //    LastReceiptCost															as LastReceiptCost,
 //    LastReceiptDate															as LastReceiptDate,
 //    MaxOrderQty																as MaxOrderQty,
@@ -213,7 +213,7 @@ LOAD
 	BusinessEntityID														as VendorID,
     Name																	as VendorName,					
     PreferredVendorStatus													as PreferredVendorStatus,
-    ActiveFlag																as ActiveFlag,										
+    ActiveFlag																as ActiveFlag										
 //   CreditRating															as CreditRating,
 //    AccountNumber															as VendorAccountNumber							
 
@@ -278,6 +278,7 @@ LOAD
     OrderDate																	as OrderDate,
 	AccountNumber																as SalesAccountNumber,
     BillToAddressID																as BillToAddressID,
+    ShipToAddressID																as ShipToAddressID,
     Freight																		as Freight,
     TaxAmt																		as TaxAmt,
     LocalCurrency																as LocalCurrency,
@@ -286,10 +287,8 @@ LOAD
 //    RevisionNumber																as RevisionNumber,
 //    SalesOrderNumber															as SalesOrderNumber,
     ShipMethodID																as ShipMethodID,
-    ShipToAddressID																as ShipToAddressID,
     Status																		as StatusID,
-    TerritoryID & '|' & OrderDate 												as SalesTerritoryDateKey
-    
+    TerritoryID & '|' & OrderDate 												as SalesTerritoryDateKey    
 FROM [lib://QVDs/SalesOrderHeader.qvd](qvd);
 
 
@@ -368,9 +367,10 @@ Drop Table SalesTerritoryHistoryTemp;
 
 
 
-
-//Address:
-Left Join(SalesOrderHeader)
+/******************************************* ADDRESS *******************************************/
+/*
+Address:
+//Left Join(SalesOrderHeader)
 LOAD
     AddressID															as AddressID,
     AddressLine1														as AddressLine1,
@@ -385,8 +385,38 @@ LOAD
     TerritoryID															as AdressTerritoryID
 FROM [lib://QVDs/Address.qvd](qvd)
 WHERE Exists(AddressID);
+*/
 
 
+Address_BillTo:
+LOAD
+    AddressID                            as BillToAddressID,
+    AddressLine1                         as BillToAddressLine1,
+    AddressLine2                         as BillToAddressLine2,
+    City                                 as BillToCity,
+    CountryRegionCode                    as BillToCountryRegionCode,
+    CountryRegionName                    as BillToCountryRegionName,
+//    IsOnlyStateProvinceFlag              as BillToIsOnlyStateProvinceFlag,
+    PostalCode                           as BillToPostalCode,
+    StateProvinceCode                    as BillToStateProvinceCode,
+    StateProvinceName                    as BillToStateProvinceName,
+    TerritoryID                          as BillToAddressTerritoryID
+FROM [lib://QVDs/Address.qvd](qvd);
+
+Address_ShipTo:
+LOAD
+    AddressID                            as ShipToAddressID,
+    AddressLine1                         as ShipToAddressLine1,
+    AddressLine2                         as ShipToAddressLine2,
+    City                                 as ShipToCity,
+    CountryRegionCode                    as ShipToCountryRegionCode,
+    CountryRegionName                    as ShipToCountryRegionName,
+//    IsOnlyStateProvinceFlag              as ShipToIsOnlyStateProvinceFlag,
+    PostalCode                           as ShipToPostalCode,
+    StateProvinceCode                    as ShipToStateProvinceCode,
+    StateProvinceName                    as ShipToStateProvinceName,
+    TerritoryID                          as ShipToAddressTerritoryID
+FROM [lib://QVDs/Address.qvd](qvd);
 
 
 
