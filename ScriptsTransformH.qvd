@@ -1,0 +1,479 @@
+/******************************************* MAIN *******************************************/
+
+// "As-of" date fijo (requisito del ejercicio)
+LET vAsOfDate = Date(MakeDate(2009,6,30));  // 30-Jun-2009
+LET vNullDate = Date(MakeDate(2099,12,31)); // para cerrar SCD sin EndDate
+
+// -------------------- MAPS AUXILIARES --------------------
+
+Map_CurrencyRate:
+Mapping
+LOAD * INLINE [
+LocalCurrency, Rate
+AUD, 1.0908
+CAD, 1.0187
+EUR, 0.7399
+GBP, 0.6650
+USD, 1.0000
+];
+
+// ShipMethod : 1 tierra, 2 carguero
+Map_ShipMethod:
+Mapping
+LOAD * INLINE [
+ShipMethodID, ShipMethodName
+1, Por tierra
+2, Por carguero
+];
+
+
+/******************************************* CUSTOMER *******************************************/
+Customer:
+LOAD
+//    AccountNumber														as CustomerAccountNumber,
+    CustomerID															as CustomerID,
+    PersonID															as PersonID,
+    StoreID																as StoreID,
+    TerritoryID															as CustomerTerritoryID
+FROM [lib://QVDs/Customer.qvd](qvd)
+Where CustomerID>0;
+
+
+
+
+//Person:
+Left Join(Customer)
+LOAD
+    BusinessEntityID													as PersonID,
+    FirstName & ' ' & MiddleName & ' ' & LastName						as PersonName,	
+//   EmailPromotion														as EmailPromotion,														
+//    NameStyle															as StylePersonName,
+//    PersonType														as PersonType,
+//    Title																as TitlePerson,
+//    Suffix															as Suffix
+FROM [lib://QVDs/Person.qvd](qvd);
+
+
+
+
+//Store:
+Left Join(Customer)
+LOAD
+//    SalesPersonID														as SalesPersonID,
+    StoreID																as StoreID,
+    StoreName															as StoreName
+FROM [lib://QVDs/Store.qvd](qvd);
+
+
+
+
+
+
+
+
+
+/******************************************* EMPLOYEE *******************************************/
+Employee:
+LOAD
+    EmployeeBusinessEntityID												as SalesPersonID,
+    FirstName & MiddleName & LastName										as EmployeeName,
+    CurrentFlag																as CurrentFlag,
+    DepartmentName															as DepartmentName,
+    Title																	as Title,
+    ParentEmployeeBusinessEntityID											as ParentSalesPersonID,
+    SalariedFlag															as SalariedFlag,
+    SalesPersonFlag															as SalesPersonFlag,
+    SalesTerritoryKey														as SalesTerritoryKey,
+//    BaseRate																as BaseRate,
+//    BirthDate																as BirthDate,
+//    EmailAddress															as EmailAddress,
+//    EmergencyContactName													as EmergencyContactName,
+//    EmergencyContactPhone													as EmergencyContactPhone,
+//    EndDate																as EmployeeEndDate,
+//    Gender																as Gender,
+//    HireDate																as HireDate,
+//    MaritalStatus															as MaritalStatus,
+//    PayFrequency															as PayFrequency,
+//    Phone																	as Phone,
+//    SickLeaveHours														as SickLeaveHours,
+//    StartDate																as EmployeeStartDate,
+//    Status																as EmployeeStatus,
+//    VacationHours															as VacationHours
+FROM [lib://QVDs/Employee.qvd](qvd)
+WHERE EmployeeBusinessEntityID > 273; // personas que están dedicadas a ventas > 273
+
+
+
+
+
+
+
+
+
+
+
+
+/******************************************* PRODUCT *******************************************/
+
+//Product Model < Product
+
+Map_ProductModel:
+Mapping
+LOAD
+	ProductModelID															as ProductModelID,
+    Name 																	as ProductModelName
+FROM [lib://QVDs/ProductModel.qvd](qvd);
+
+
+Product:
+LOAD
+    ProductID																as ProductID,
+    Name 																	as ProductName,
+    ProductNumber															as ProductNumber,
+    ProductModelID															as ProductModelID,
+    ApplyMap('Map_ProductModel', ProductModelID) 							as ProductModelName,
+    ProductSubcategoryID													as ProductSubcategoryID,
+    StandardCost															as StandardCost,
+    ListPrice																as ListPrice,
+    MakeFlag																as MakeFlag,
+    ProductLine																as ProductLine,
+//    "Class"																as ProductClass,
+//    "Color"																as ProductColor,
+//    DaysToManufacture														as DaysToManufacture,
+//    DiscontinuedDate														as DiscontinuedDate,
+//    FinishedGoodsFlag														as FinishedGoodsFlag,
+//    ReorderPoint															as ReorderPoint,
+//    SafetyStockLevel														as SafetyStockLevel,
+//    SellEndDate															as SellEndDate,
+//    SellStartDate															as SellStartDate,
+//    Size																	as Size,
+//    SizeUnitMeasureCode													as SizeUnitMeasureCode,
+//    Style																	as ProductStyle,
+//    Weight																as ProductWeight,
+//    WeightUnitMeasureCode													as WeightUnitMeasureCode
+FROM [lib://QVDs/Product.qvd](qvd)
+WHERE Exists(ProductID);
+
+
+
+
+
+//ProductCategory < Product SubCategory < Product
+Map_ProductCategory:
+Mapping
+LOAD
+	ProductCategoryID														as ProductCategoryID,
+    Name																	as ProductCategoryName 
+    
+FROM [lib://QVDs/ProductCategory.qvd](qvd);
+
+
+//ProductSubcategory:
+Left Join(Product)
+LOAD
+	ProductSubcategoryID 													as ProductSubcategoryID,
+    Name 																	as ProductSubcategoryName,
+    ApplyMap('Map_ProductCategory', ProductCategoryID)						as ProductCategoryName
+FROM [lib://QVDs/ProductSubcategory.qvd](qvd);
+
+
+
+
+
+
+
+
+
+
+/******************************************* VENDOR *******************************************/
+// Vendor < Product Vendor < Product
+
+ProductVendor:
+LOAD
+    BusinessEntityID 														    as VendorID,
+    AverageLeadTime															    as AverageLeadTime,
+    ProductID																    as ProductID,
+    StandardPrice															    as StandardPrice,
+//    LastReceiptCost															as LastReceiptCost,
+//    LastReceiptDate															as LastReceiptDate,
+//    MaxOrderQty																as MaxOrderQty,
+//    MinOrderQty																as MinOrderQty,
+//    OnOrderQty																as OnOrderQty,
+//    UnitMeasureCode															as UnitMeasureCode
+FROM [lib://QVDs/ProductVendor.qvd](qvd);
+
+
+
+
+
+//Vendor:
+Left Join(ProductVendor)
+LOAD
+	BusinessEntityID														as VendorID,
+    Name																	as VendorName,					
+    PreferredVendorStatus													as PreferredVendorStatus,
+    ActiveFlag																as ActiveFlag,										
+//   CreditRating															as CreditRating,
+//    AccountNumber															as VendorAccountNumber							
+
+FROM [lib://QVDs/Vendor.qvd](qvd)
+WHERE Len(Trim(BusinessEntityID))>0 and ActiveFlag<>0;						//sólo los proveedores activos/fav
+
+
+
+
+
+Left Join(Product)
+LOAD * 
+Resident ProductVendor;
+Drop Table ProductVendor;
+
+
+
+
+
+
+
+
+
+
+/******************************************* SALES *******************************************/
+SalesOrderDetail:
+LOAD
+	SalesOrderID																as SalesOrderID,
+    SpecialOfferID																as SpecialOfferID,
+    SalesOrderDetailID															as SalesOrderDetailID,
+    ProductID																	as ProductID,
+    OrderQty																	as OrderQty,
+    UnitPrice																	as UnitPrice,
+    UnitPriceDiscount															as UnitPriceDiscount,
+//    CarrierTrackingNumber														as CarrierTrackingNumber,
+    DueDate																		as DueDate,
+    ShipDate																	as ShipDate
+FROM [lib://QVDs/SalesOrderDetail.qvd](qvd);
+
+
+
+
+
+SpecialOffer:
+Left Join(SalesOrderDetail)
+LOAD
+    SpecialOfferID																			as SpecialOfferID,
+    Description																				as SpecialOfferDescription,
+    DiscountPct																				as DiscountPct,
+    "Type"																					as SpecialOfferType,
+    Category																				as SpecialOfferCategory
+FROM [lib://QVDs/SpecialOffer.qvd](qvd);
+
+
+
+
+SalesOrderHeader:
+LOAD
+	SalesOrderID																as SalesOrderID,
+    CustomerID																	as CustomerID,
+    TerritoryID																	as SalesTerritoryID,
+    OrderDate																	as OrderDate,
+	AccountNumber																as SalesAccountNumber,
+//    BillToAddressID																as BillToAddressID,
+    Freight																		as Freight,
+    TaxAmt																		as TaxAmt,
+    LocalCurrency																as LocalCurrency,
+    OnlineOrderFlag																as OnlineOrderFlag,
+    PurchaseOrderNumber															as PurchaseOrderNumber,
+//    RevisionNumber																as RevisionNumber,
+//    SalesOrderNumber															as SalesOrderNumber,
+    ShipMethodID																as ShipMethodID,
+//    ShipToAddressID																as ShipToAddressID,
+    ShipToAddressID																as AddressID,
+    Status																		as StatusID,
+    TerritoryID & '|' & OrderDate 												as SalesTerritoryDateKey
+    
+FROM [lib://QVDs/SalesOrderHeader.qvd](qvd);
+
+
+
+
+
+//SalesTerritory_Sales:
+Left Join(SalesOrderHeader)
+LOAD
+	TerritoryID																	as SalesTerritoryID,
+    CountryRegionCode															as SalesTerritoryCountryRegionCode,
+    "Group"																		as SalesTerritoryGroup,
+    Name 																		as SalesTerritorySalesName
+FROM [lib://QVDs/SalesTerritory.qvd](qvd);
+
+
+//SalesTerritory_Customer:
+Left Join(Customer)
+LOAD
+	TerritoryID																	as CustomerTerritoryID,
+    CountryRegionCode															as CustomerTerritoryCountryRegionCode,
+    "Group"																		as CustomerTerritoryGroup,
+    Name 																		as CustomerTerritorySalesName    
+FROM [lib://QVDs/SalesTerritory.qvd](qvd);
+
+
+
+
+//Carga tabla temporal
+SalesTerritoryHistoryTemp:
+LOAD
+    BusinessEntityID                               								as SalesPersonID,     
+    TerritoryID                                    								as SalesTerritoryID,  
+    StartDate                         											as TerritoryStartDate,
+    If(IsNull(EndDate), Today(), EndDate)										as TerritoryEndDate
+FROM [lib://QVDs/SalesTerritoryHistory.qvd](qvd);
+
+
+//IntervalMatch de por fecha+territorio usando la tambla temporal
+SalesTerritoryHistory_Interval:
+IntervalMatch (OrderDate, SalesTerritoryID)
+LOAD
+    TerritoryStartDate,
+    TerritoryEndDate,
+    SalesTerritoryID
+Resident SalesTerritoryHistoryTemp;
+
+
+// Tabla final relacionada mediante SalesTerritoryDateKey
+// SalesTerritoryID_NoLink para que no enlazca con otra tabla y evitar claves sintéticas
+// usando la tabla interval y la borramos
+NoConcatenate
+SalesTerritoryHistory:
+LOAD
+    SalesTerritoryID & '|' & OrderDate				 as SalesTerritoryDateKey,
+    TerritoryStartDate                               as TerritoryStartDate,
+    TerritoryEndDate                                 as TerritoryEndDate,
+    SalesTerritoryID                                 as SalesTerritoryID_NoLink
+Resident SalesTerritoryHistory_Interval;
+Drop Table SalesTerritoryHistory_Interval;
+
+
+// Trae el campo SalesPersonID 
+Left Join (SalesTerritoryHistory)
+LOAD
+    TerritoryStartDate,
+    TerritoryEndDate,
+    SalesTerritoryID                                 as SalesTerritoryID_NoLink,
+    SalesPersonID
+Resident SalesTerritoryHistoryTemp;
+Drop Table SalesTerritoryHistoryTemp;
+
+
+
+
+
+
+
+
+//Address:
+Left Join(SalesOrderHeader)
+LOAD
+    AddressID															as AddressID,
+    AddressLine1														as AddressLine1,
+    AddressLine2														as AddressLine2,
+    City																as AddressCity,
+    CountryRegionCode													as AddressCountryRegionCode,
+    CountryRegionName													as AddressCountryRegionName,
+    IsOnlyStateProvinceFlag												as AddressIsOnlyStateProvinceFlag,
+    PostalCode															as AddressPostalCode,
+    StateProvinceCode													as AddressStateProvinceCode,
+    StateProvinceName													as AddressStateProvinceName,
+    TerritoryID															as AdressTerritoryID
+FROM [lib://QVDs/Address.qvd](qvd)
+WHERE Exists(AddressID);
+
+
+
+
+
+
+
+/******************************************* QUOTA *******************************************/
+QuotaTemp:
+CROSSTABLE (EmployeeID, QuotaAmount, 1)
+LOAD
+    Date(F1,'DD/MM/YYYY')																	as QuotaFecha,
+    "275"																					as 275,
+    "276"																					as 276,
+    "277"																					as 277,
+    "279"																					as 279,
+    "280"																					as 280,
+    "282"																					as 282,
+    "284"																					as 284,
+    "286"																					as 286,
+    Website																					as 285,
+    "288"																					as 288,
+   	"289"																					as 289,
+   	"290"																					as 290
+    
+FROM [lib://QVDs/Quota.qvd](qvd);
+
+
+NoConcatenate
+Quota:
+LOAD
+	EmployeeID																				as EmployeeID,
+    Makedate(Year(QuotaFecha), Month(QuotaFecha) + IterNo()-1, Day(QuotaFecha))				as QuotaFecha,
+    Round(QuotaAmount/3,0.01)																as QuotaAmount
+Resident QuotaTemp
+While IterNo() <= 3
+Order By EmployeeID, QuotaFecha;
+DROP TABLE QuotaTemp;
+
+
+
+
+
+
+// -------------------- CALENDARIO FISCAL (JULIO = MES 1) --------------------
+TmpMinMax:
+LOAD
+    Min(OrderDate) as MinDate,
+    Max(OrderDate) as MaxDate
+Resident FactSales_Final;
+
+LET vMinDate = Peek('MinDate',0,'TmpMinMax');
+LET vMaxDate = Peek('MaxDate',0,'TmpMinMax');
+
+Drop Table TmpMinMax;
+
+// Extiende rango para incluir cuotas si hiciera falta
+TmpMinMax2:
+LOAD
+    Min(QuotaMonth) as MinQuota,
+    Max(QuotaMonth) as MaxQuota
+Resident Quota;
+
+LET vMinQuota = Peek('MinQuota',0,'TmpMinMax2');
+LET vMaxQuota = Peek('MaxQuota',0,'TmpMinMax2');
+Drop Table TmpMinMax2;
+
+LET vCalMin = Date(If($(vMinQuota) < $(vMinDate), $(vMinQuota), $(vMinDate)));
+LET vCalMax = Date(If($(vMaxQuota) > $(vMaxDate), $(vMaxQuota), $(vMaxDate)));
+
+MasterCalendar:
+LOAD
+    Date($(vCalMin) + IterNo()-1)                             as Date,
+    Year(Date($(vCalMin) + IterNo()-1))                       as Year,
+    Month(Date($(vCalMin) + IterNo()-1))                      as Month,
+    MonthName(Date($(vCalMin) + IterNo()-1))                  as MonthYear,
+    Date(MonthStart(Date($(vCalMin) + IterNo()-1)))           as MonthStart,
+    QuarterName(Date($(vCalMin) + IterNo()-1))                as QuarterYear,
+
+    // Fiscal: año empieza 1-Jul, meses naturales pero Julio debe ser el primero
+    Year(AddMonths(Date($(vCalMin) + IterNo()-1), 6))          as FiscalYear,
+    // FiscalMonthNum: Julio=1 ... Junio=12
+    Mod(Month(Date($(vCalMin) + IterNo()-1)) + 5, 12) + 1      as FiscalMonthNum,
+    Dual(
+        // Etiqueta (Jul, Ago, ...)
+        Month(AddMonths(Date($(vCalMin) + IterNo()-1), -6)),
+        // Orden: 1..12
+        Mod(Month(Date($(vCalMin) + IterNo()-1)) + 5, 12) + 1
+    )                                                         as FiscalMonth,
+    Ceil((Mod(Month(Date($(vCalMin) + IterNo()-1)) + 5, 12) + 1)/3) as FiscalQuarter
+AutoGenerate 1
+While $(vCalMin) + IterNo()-1 <= $(vCalMax);
