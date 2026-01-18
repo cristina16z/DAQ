@@ -35,6 +35,7 @@ LOAD
     PersonID															as PersonID,
     StoreID																as StoreID,
     TerritoryID															as CustomerTerritoryID
+//    If(IsNull(StoreID), 'Person', 'Store')                            as CustomerType
 FROM [lib://QVDs/Customer.qvd](qvd)
 Where CustomerID>0;
 
@@ -276,7 +277,7 @@ LOAD
     TerritoryID																	as SalesTerritoryID,
     OrderDate																	as OrderDate,
 	AccountNumber																as SalesAccountNumber,
-//    BillToAddressID																as BillToAddressID,
+    BillToAddressID																as BillToAddressID,
     Freight																		as Freight,
     TaxAmt																		as TaxAmt,
     LocalCurrency																as LocalCurrency,
@@ -285,8 +286,7 @@ LOAD
 //    RevisionNumber																as RevisionNumber,
 //    SalesOrderNumber															as SalesOrderNumber,
     ShipMethodID																as ShipMethodID,
-//    ShipToAddressID																as ShipToAddressID,
-    ShipToAddressID																as AddressID,
+    ShipToAddressID																as ShipToAddressID,
     Status																		as StatusID,
     TerritoryID & '|' & OrderDate 												as SalesTerritoryDateKey
     
@@ -374,11 +374,11 @@ Left Join(SalesOrderHeader)
 LOAD
     AddressID															as AddressID,
     AddressLine1														as AddressLine1,
-    AddressLine2														as AddressLine2,
+    If(Len(Trim(AddressLine2))=0, '', AddressLine2)						as AddressLine2,
     City																as AddressCity,
     CountryRegionCode													as AddressCountryRegionCode,
     CountryRegionName													as AddressCountryRegionName,
-    IsOnlyStateProvinceFlag												as AddressIsOnlyStateProvinceFlag,
+//    IsOnlyStateProvinceFlag												as AddressIsOnlyStateProvinceFlag,
     PostalCode															as AddressPostalCode,
     StateProvinceCode													as AddressStateProvinceCode,
     StateProvinceName													as AddressStateProvinceName,
