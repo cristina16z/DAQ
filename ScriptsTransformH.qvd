@@ -1,11 +1,10 @@
 /******************************************* MAIN *******************************************/
+Let vToday = Date('30/06/2009', 'DD/MM/YYYY');
 
-// "As-of" date fijo (requisito del ejercicio)
-LET vAsOfDate = Date(MakeDate(2009,6,30));  // 30-Jun-2009
-LET vNullDate = Date(MakeDate(2099,12,31)); // para cerrar SCD sin EndDate
 
-// -------------------- MAPS AUXILIARES --------------------
 
+/******************************************* MAPS *******************************************/
+//Cambio de moneda
 Map_CurrencyRate:
 Mapping
 LOAD * INLINE [
@@ -17,6 +16,7 @@ GBP, 0.6650
 USD, 1.0000
 ];
 
+
 // ShipMethod : 1 tierra, 2 carguero
 Map_ShipMethod:
 Mapping
@@ -24,6 +24,24 @@ LOAD * INLINE [
 ShipMethodID, ShipMethodName
 1, Por tierra
 2, Por carguero
+];
+
+
+//Días de retraso
+Map_DiasRetraso:
+Mapping LOAD * INLINE [
+Dias, Label
+1, '1 día de retraso'
+2, '2 días de retraso'
+3, '3 días de retraso'
+];
+
+Map_DiasOrden:
+Mapping LOAD * INLINE [
+Dias, Orden
+1, 2
+2, 3
+3, 4
 ];
 
 
@@ -35,10 +53,9 @@ LOAD
     PersonID															as PersonID,
     StoreID																as StoreID,
     TerritoryID															as CustomerTerritoryID
-//    If(IsNull(StoreID), 'Person', 'Store')                            as CustomerType
+
 FROM [lib://QVDs/Customer.qvd](qvd)
 Where CustomerID>0;
-
 
 
 
@@ -47,13 +64,12 @@ Left Join(Customer)
 LOAD
     BusinessEntityID													as PersonID,
     FirstName & ' ' & MiddleName & ' ' & LastName						as PersonName	
-//   EmailPromotion														as EmailPromotion,														
-//    NameStyle															as StylePersonName,
-//    PersonType														as PersonType,
-//    Title																as TitlePerson,
-//    Suffix															as Suffix
+//  EmailPromotion														as EmailPromotion,														
+//  NameStyle															as StylePersonName,
+//  PersonType															as PersonType,
+//  Title																as TitlePerson,
+//  Suffix																as Suffix
 FROM [lib://QVDs/Person.qvd](qvd);
-
 
 
 
@@ -61,10 +77,9 @@ FROM [lib://QVDs/Person.qvd](qvd);
 Left Join(Customer)
 LOAD
 //    SalesPersonID														as SalesPersonID,
-    StoreID																as StoreID,
+    StoreID,
     StoreName															as StoreName
 FROM [lib://QVDs/Store.qvd](qvd);
-
 
 
 
@@ -101,10 +116,7 @@ LOAD
 //    Status																as EmployeeStatus,
 //    VacationHours															as VacationHours
 FROM [lib://QVDs/Employee.qvd](qvd)
-WHERE EmployeeBusinessEntityID > 273; // personas que están dedicadas a ventas > 273
-
-
-
+WHERE EmployeeBusinessEntityID > 273; 										// personas que están dedicadas a ventas > 273
 
 
 
@@ -152,10 +164,8 @@ LOAD
 //    Style																	as ProductStyle,
 //    Weight																as ProductWeight,
 //    WeightUnitMeasureCode													as WeightUnitMeasureCode
-FROM [lib://QVDs/Product.qvd](qvd)
-WHERE Exists(ProductID);
-
-
+FROM [lib://QVDs/Product.qvd](qvd);
+//WHERE Exists(ProductID);
 
 
 
@@ -176,12 +186,6 @@ LOAD
     Name 																	as ProductSubcategoryName,
     ApplyMap('Map_ProductCategory', ProductCategoryID)						as ProductCategoryName
 FROM [lib://QVDs/ProductSubcategory.qvd](qvd);
-
-
-
-
-
-
 
 
 
@@ -232,43 +236,7 @@ Drop Table ProductVendor;
 
 
 
-
-
-
-
-
-
 /******************************************* SALES *******************************************/
-SalesOrderDetail:
-LOAD
-	SalesOrderID																as SalesOrderID,
-    SpecialOfferID																as SpecialOfferID,
-    SalesOrderDetailID															as SalesOrderDetailID,
-    ProductID																	as ProductID,
-    OrderQty																	as OrderQty,
-    UnitPrice																	as UnitPrice,
-    UnitPriceDiscount															as UnitPriceDiscount,
-//    CarrierTrackingNumber														as CarrierTrackingNumber,
-    DueDate																		as DueDate,
-    ShipDate																	as ShipDate
-FROM [lib://QVDs/SalesOrderDetail.qvd](qvd);
-
-
-
-
-
-SpecialOffer:
-Left Join(SalesOrderDetail)
-LOAD
-    SpecialOfferID																			as SpecialOfferID,
-    Description																				as SpecialOfferDescription,
-    DiscountPct																				as DiscountPct,
-    "Type"																					as SpecialOfferType,
-    Category																				as SpecialOfferCategory
-FROM [lib://QVDs/SpecialOffer.qvd](qvd);
-
-
-
 
 SalesOrderHeader:
 LOAD
@@ -284,14 +252,63 @@ LOAD
     LocalCurrency																as LocalCurrency,
     OnlineOrderFlag																as OnlineOrderFlag,
     PurchaseOrderNumber															as PurchaseOrderNumber,
-//    RevisionNumber																as RevisionNumber,
+//    RevisionNumber															as RevisionNumber,
 //    SalesOrderNumber															as SalesOrderNumber,
     ShipMethodID																as ShipMethodID,
-    Status																		as StatusID,
-    TerritoryID & '|' & OrderDate 												as SalesTerritoryDateKey    
+    Status																		as StatusID 
 FROM [lib://QVDs/SalesOrderHeader.qvd](qvd);
 
 
+
+SalesOrderDetail:																//Load Precedente
+LOAD
+    *,
+    If(DiasRetraso <= 0, 1, 0) as EsATiempo,									//FlagATiempo= 1 si es antes o puntuala la fecha,sino 0
+    If(DiasRetraso > 0, 1, 0) as EsRetrasado,									//FlagRetrasado = 1 si llega con retraso
+	
+    Dual(																		//Dual mete número interno para que se ordene (txt,num)
+        If(DiasRetraso<=0, 'A Tiempo',														
+        If(DiasRetraso>=4, '> 3 días de retraso',								//si está entre 0 - 3,escribe los días de retraso
+           Pick(Match(DiasRetraso,1,2,3),										//busca valor diasRetraso dentro de la lista 1,2,3, sino 0
+                '1 día de retraso','2 días de retraso','3 días de retraso')		//Num pick para escoger txt - match te devuelve numposición
+           )
+        ),																		//Resultado Final Orden
+        If(DiasRetraso<=0, 1,													// <=0 A tiempo - num 1 orden
+           If(DiasRetraso>=4, 5, DiasRetraso+1))								//>=4 díasRetraso - num 5 orden
+    ) as TiempoDeEnvio															// DiasRetraso+1 - num orden diasRetraso+1
+;
+
+LOAD
+	SalesOrderID																as SalesOrderID,
+    SpecialOfferID																as SpecialOfferID,
+    SalesOrderDetailID															as SalesOrderDetailID,
+    ProductID																	as ProductID,
+    OrderQty																	as OrderQty,
+    UnitPrice																	as UnitPrice,
+    UnitPriceDiscount															as UnitPriceDiscount,
+//    CarrierTrackingNumber														as CarrierTrackingNumber,
+    DueDate																		as DueDate,
+    ShipDate																	as ShipDate,
+    Floor(ShipDate) - Floor(DueDate) 											as DiasRetraso
+FROM [lib://QVDs/SalesOrderDetail.qvd](qvd);
+
+
+
+SpecialOffer:
+Left Join(SalesOrderDetail)
+LOAD
+    SpecialOfferID																as SpecialOfferID,
+    Description																	as SpecialOfferDescription,
+    DiscountPct																	as DiscountPct,
+    "Type"																		as SpecialOfferType,
+    Category																	as SpecialOfferCategory
+FROM [lib://QVDs/SpecialOffer.qvd](qvd);
+
+
+Left Join(SalesOrderHeader)
+LOAD * 
+Resident SalesOrderDetail;
+Drop Table SalesOrderDetail;
 
 
 
@@ -315,62 +332,22 @@ LOAD
 FROM [lib://QVDs/SalesTerritory.qvd](qvd);
 
 
-
-
-//Carga tabla temporal
-SalesTerritoryHistoryTemp:
+SalesTerritoryHistory:
 LOAD
     BusinessEntityID                               								as SalesPersonID,     
     TerritoryID                                    								as SalesTerritoryID,  
     StartDate                         											as TerritoryStartDate,
-    If(IsNull(EndDate), Today(), EndDate)										as TerritoryEndDate
+    Date(If(IsNull(EndDate), Today(), EndDate))									as TerritoryEndDate
 FROM [lib://QVDs/SalesTerritoryHistory.qvd](qvd);
-
-
-//IntervalMatch de por fecha+territorio usando la tambla temporal
-SalesTerritoryHistory_Interval:
-IntervalMatch (OrderDate, SalesTerritoryID)
-LOAD
-    TerritoryStartDate,
-    TerritoryEndDate,
-    SalesTerritoryID
-Resident SalesTerritoryHistoryTemp;
-
-
-// Tabla final relacionada mediante SalesTerritoryDateKey
-// SalesTerritoryID_NoLink para que no enlazca con otra tabla y evitar claves sintéticas
-// usando la tabla interval y la borramos
-NoConcatenate
-SalesTerritoryHistory:
-LOAD
-    SalesTerritoryID & '|' & OrderDate				 as SalesTerritoryDateKey,
-    TerritoryStartDate                               as TerritoryStartDate,
-    TerritoryEndDate                                 as TerritoryEndDate,
-    SalesTerritoryID                                 as SalesTerritoryID_NoLink
-Resident SalesTerritoryHistory_Interval;
-Drop Table SalesTerritoryHistory_Interval;
-
-
-// Trae el campo SalesPersonID 
-Left Join (SalesTerritoryHistory)
-LOAD
-    TerritoryStartDate,
-    TerritoryEndDate,
-    SalesTerritoryID                                 as SalesTerritoryID_NoLink,
-    SalesPersonID
-Resident SalesTerritoryHistoryTemp;
-Drop Table SalesTerritoryHistoryTemp;
-
-
-
 
 
 
 
 /******************************************* ADDRESS *******************************************/
+
 /*
+Concatenate (Address)
 Address:
-//Left Join(SalesOrderHeader)
 LOAD
     AddressID															as AddressID,
     AddressLine1														as AddressLine1,
@@ -382,10 +359,12 @@ LOAD
     PostalCode															as AddressPostalCode,
     StateProvinceCode													as AddressStateProvinceCode,
     StateProvinceName													as AddressStateProvinceName,
-    TerritoryID															as AdressTerritoryID
+    TerritoryID															as AdressTerritoryID,
+    'Ship'                                   							as typeAddress
 FROM [lib://QVDs/Address.qvd](qvd)
-WHERE Exists(AddressID);
-*/
+WHERE Exists(ShipToAddressID, AddressID);*/
+
+
 
 
 Address_BillTo:
@@ -419,9 +398,6 @@ LOAD
 FROM [lib://QVDs/Address.qvd](qvd);
 
 
-
-
-
 /******************************************* QUOTA *******************************************/
 QuotaTemp:
 CROSSTABLE (EmployeeID, QuotaAmount, 1)
@@ -439,71 +415,117 @@ LOAD
     "288"																					as 288,
    	"289"																					as 289,
    	"290"																					as 290
-    
 FROM [lib://QVDs/Quota.qvd](qvd);
 
 
-NoConcatenate
 Quota:
+Load
+	text(EmployeeID)																		as SalesPersonID,
+    QuotaFecha as QuotaFecha,
+    QuotaAmount as QuotaAmount
+Resident QuotaTemp;
+
+
+
+SalesTerritoryHistoryQuota:
 LOAD
-	EmployeeID																				as EmployeeID,
-    Makedate(Year(QuotaFecha), Month(QuotaFecha) + IterNo()-1, Day(QuotaFecha))				as QuotaFecha,
-    Round(QuotaAmount/3,0.01)																as QuotaAmount
-Resident QuotaTemp
-While IterNo() <= 3
-Order By EmployeeID, QuotaFecha;
-DROP TABLE QuotaTemp;
+    text(BusinessEntityID)                               						as SalesPersonID,     
+    TerritoryID                                    								as SalesTerritoryID,  
+    StartDate                         											as TerritoryStart,
+    Date(If(IsNull(EndDate),'$(vToday)', EndDate))								as TerritoryEnd
+FROM [lib://QVDs/SalesTerritoryHistory.qvd](qvd);
+Drop Table QuotaTemp;
+
+
+Left Join (SalesTerritoryHistoryQuota)
+IntervalMatch(QuotaFecha)
+Load distinct
+TerritoryStart, TerritoryEnd
+Resident SalesTerritoryHistoryQuota;
+
+
+Left Join (Quota)
+Load *
+Resident SalesTerritoryHistoryQuota;
+
+drop table SalesTerritoryHistoryQuota;
+Drop table SalesTerritoryHistory;
 
 
 
 
 
 
-// -------------------- CALENDARIO FISCAL (JULIO = MES 1) --------------------
-TmpMinMax:
+
+
+
+
+
+/******************************************* MASTERCALENDAR *******************************************/
+
+
+// Generate MinMaxTemp table
+[MinMaxTemp]:
 LOAD
-    Min(OrderDate) as MinDate,
-    Max(OrderDate) as MaxDate
-Resident FactSales_Final;
+	DATE(MIN(FieldValue('OrderDate', RecNo()))) AS MinDate,
+    DATE(MAX(FieldValue('OrderDate', RecNo()))) AS MaxDate
+AUTOGENERATE FieldValueCount('OrderDate');
+ 
+// Create variable MaxDate
+//LET vToday = NUM(PEEK('MaxDate', 0, 'MinMaxTemp'));
+ 
 
-LET vMinDate = Peek('MinDate',0,'TmpMinMax');
-LET vMaxDate = Peek('MaxDate',0,'TmpMinMax');
-
-Drop Table TmpMinMax;
-
-// Extiende rango para incluir cuotas si hiciera falta
-TmpMinMax2:
+[MasterCalendar_Temp]:
 LOAD
-    Min(QuotaMonth) as MinQuota,
-    Max(QuotaMonth) as MaxQuota
-Resident Quota;
+	DATE(MinDate + IterNo() - 1) AS OrderDate
+Resident MinMaxTemp
+WHILE MinDate + IterNo() - 1 <= MaxDate;
+DROP TABLE MinMaxTemp;
+ 
 
-LET vMinQuota = Peek('MinQuota',0,'TmpMinMax2');
-LET vMaxQuota = Peek('MaxQuota',0,'TmpMinMax2');
-Drop Table TmpMinMax2;
-
-LET vCalMin = Date(If($(vMinQuota) < $(vMinDate), $(vMinQuota), $(vMinDate)));
-LET vCalMax = Date(If($(vMaxQuota) > $(vMaxDate), $(vMaxQuota), $(vMaxDate)));
-
-MasterCalendar:
+ 
+// MasterCalendar 
+[MasterCalendar]:
 LOAD
-    Date($(vCalMin) + IterNo()-1)                             as Date,
-    Year(Date($(vCalMin) + IterNo()-1))                       as Year,
-    Month(Date($(vCalMin) + IterNo()-1))                      as Month,
-    MonthName(Date($(vCalMin) + IterNo()-1))                  as MonthYear,
-    Date(MonthStart(Date($(vCalMin) + IterNo()-1)))           as MonthStart,
-    QuarterName(Date($(vCalMin) + IterNo()-1))                as QuarterYear,
+	OrderDate,
+    Day(OrderDate) AS Day,
+    
+    //Año natural
+   	Year(OrderDate) AS CalendarYear,
+    
+    //Primer mes Julio
+//    Month(OrderDate) AS Month,
+	Dual(Month(OrderDate), Mod(Month(OrderDate)+5,12)+1) AS Month,
+    Date(MonthStart(OrderDate), 'MMM-YYYY') AS MonthYear,
 
-    // Fiscal: año empieza 1-Jul, meses naturales pero Julio debe ser el primero
-    Year(AddMonths(Date($(vCalMin) + IterNo()-1), 6))          as FiscalYear,
-    // FiscalMonthNum: Julio=1 ... Junio=12
-    Mod(Month(Date($(vCalMin) + IterNo()-1)) + 5, 12) + 1      as FiscalMonthNum,
-    Dual(
-        // Etiqueta (Jul, Ago, ...)
-        Month(AddMonths(Date($(vCalMin) + IterNo()-1), -6)),
-        // Orden: 1..12
-        Mod(Month(Date($(vCalMin) + IterNo()-1)) + 5, 12) + 1
-    )                                                         as FiscalMonth,
-    Ceil((Mod(Month(Date($(vCalMin) + IterNo()-1)) + 5, 12) + 1)/3) as FiscalQuarter
-AutoGenerate 1
-While $(vCalMin) + IterNo()-1 <= $(vCalMax);
+    
+  	//trimestre natual
+  	Dual('Q' & Ceil(Month(OrderDate)/3), Ceil(Month(OrderDate)/3)) AS CalendarQuarter,
+    
+	//trimestre fiscal
+    // 	Dual('Q' & Ceil(Month(OrderDate) / 3), Ceil(Month(OrderDate) / 3)) AS Quarter,
+    Dual('Q' & Ceil((Mod(Month(OrderDate)+5,12)+1)/3),Ceil((Mod(Month(OrderDate)+5,12)+1)/3)) AS Quarter,
+
+    
+    //Año fiscal julio > junio
+    If(Month(OrderDate)>=7, Year(OrderDate)+1, Year(OrderDate)) AS FiscalYear,
+    
+    //Comprar 2ndo meses entre trimestres por ej
+	Mod(Mod(Month(OrderDate)+5,12),3)+1 AS FiscalMonthInQuarter,
+
+
+        																// 1 = dentro del rango y 0 = fuera del rango
+    InYearToDate(OrderDate,$(vToday), 0,7)* -1 AS FYTDFlag,				//FiscalYearToDate. 1 = inicio año  fiscal hasta hoy
+    InYearToDate(OrderDate,$(vToday), -1, 7)* -1 AS FLYTDFlag,			//FiscalLastYearToDate  1 = un año fiscal atrás
+    InQuarterToDate(OrderDate, $(vToday), 0, 7) * -1 AS FQTDFlag,		//FiscalQuarterToDate 1 = desde el inicio del trimestre hasta ahora
+	InMonthToDate(OrderDate, $(vToday), 0)     * -1 AS FMTDFlag		//FiscalMonthToDate 1 = desde inicio del mes hasta ahora
+    
+//     If(DayNumberOfYear(OrderDate) <= DayNumberOfYear($(vToday)), 1, 0) AS IsInYTD,
+//     If(DayNumberOfQuarter(OrderDate) <= DayNumberOfQuarter($(vToday)), 1, 0) AS IsInQTD,
+//     If(Day(OrderDate) <= Day($(vToday)), 1, 0) AS IsInMTD,
+//     If(Month(OrderDate) = Month($(vToday)), 1, 0) AS IsCurrentMonth,
+//     If(Month(AddMonths(OrderDate, 1)) = Month($(vToday)), 1, 0) AS IsLastMonth
+    
+    
+RESIDENT MasterCalendar_Temp;
+DROP TABLE MasterCalendar_Temp;
