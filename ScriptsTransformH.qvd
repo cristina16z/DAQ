@@ -461,8 +461,9 @@ Drop table SalesTerritoryHistory;
 
 
 
-/******************************************* MASTERCALENDAR *******************************************/
 
+/******************************************* MASTERCALENDAR *******************************************/
+Let vToday = Date('30/06/2009', 'DD/MM/YYYY');
 
 // Generate MinMaxTemp table
 [MinMaxTemp]:
@@ -497,10 +498,13 @@ LOAD
 //    Month(OrderDate) AS Month,
 	Dual(Month(OrderDate), Mod(Month(OrderDate)+5,12)+1) AS Month,
     Date(MonthStart(OrderDate), 'MMM-YYYY') AS MonthYear,
+    
+    //Periodo Fiscal
+    Dual(Month(OrderDate), Mod(Month(OrderDate)+5,12)+1) AS Month,
 
     
   	//trimestre natual
-  	Dual('Q' & Ceil(Month(OrderDate)/3), Ceil(Month(OrderDate)/3)) AS CalendarQuarter,
+//  	Dual('Q' & Ceil(Month(OrderDate)/3), Ceil(Month(OrderDate)/3)) AS CalendarQuarter,
     
 	//trimestre fiscal
     // 	Dual('Q' & Ceil(Month(OrderDate) / 3), Ceil(Month(OrderDate) / 3)) AS Quarter,
