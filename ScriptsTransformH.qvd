@@ -494,14 +494,12 @@ LOAD
     //Año natural
    	Year(OrderDate) AS CalendarYear,
     
-    //Primer mes Julio
-//    Month(OrderDate) AS Month,
-	Dual(Month(OrderDate), Mod(Month(OrderDate)+5,12)+1) AS Month,
-    Date(MonthStart(OrderDate), 'MMM-YYYY') AS MonthYear,
-    
     //Periodo Fiscal
+    Mod(Month(OrderDate)+5,12)+1 AS FiscalPeriod,
+    //Primer mes Julio
     Dual(Month(OrderDate), Mod(Month(OrderDate)+5,12)+1) AS Month,
-
+    //Mes-Año
+ 	Date(MonthStart(OrderDate), 'MMM-YYYY') AS MonthYear,
     
   	//trimestre natual
 //  	Dual('Q' & Ceil(Month(OrderDate)/3), Ceil(Month(OrderDate)/3)) AS CalendarQuarter,
