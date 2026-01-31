@@ -23,6 +23,7 @@ SET NumericalAbbreviation='3:k;6:M;9:G;12:T;15:P;18:E;21:Z;24:Y;-3:m;-6:μ;-9:n;
 LET vToday = Num(Date#('30/06/2009','DD/MM/YYYY'));
 
 
+
 /******************************************* MAPS *******************************************/
 
 //Cambio de moneda
@@ -35,6 +36,8 @@ CAD, 1.0187
 EUR, 0.7399
 GBP, 0.6650
 USD, 1.0000
+DEM, 1.4471
+FRF, 4.8534
 ];
 
 
@@ -45,15 +48,24 @@ Mapping
 LOAD * INLINE [
 ShipMethodID, ShipMethodName
 1, Por tierra
-2, Por carguero
+5, Por carguero
 ];
 
+
+
+//Llegada
+Map_Llegada:
+Mapping LOAD * INLINE [
+Dias, TiempoDeLlegada
+1, 'A Tiempo'
+0, 'Retraso'
+];
 
 
 //Días de retraso
 Map_DiasRetraso:
 Mapping LOAD * INLINE [
-Dias, Label
+Dias, TiempoDeEnvio
 1, '1 día de retraso'
 2, '2 días de retraso'
 3, '3 días de retraso'
@@ -71,6 +83,16 @@ Dias, Orden
 
 
 
+// Tipo de ventas : 1 Online, 2 directas
+Map_SalesMethod:
+Mapping
+LOAD * INLINE [
+OnlineOrderFlag, SalesType
+-1, Online
+0, Directo
+];
+
+
 /******************************************* CUSTOMER *******************************************/
 
 Customer:
@@ -79,7 +101,9 @@ LOAD
     CustomerID															as CustomerID,
     PersonID															as PersonID,
     StoreID																as StoreID,
-    TerritoryID															as CustomerTerritoryID
+    TerritoryID															as CustomerTerritoryID,
+    if(Len(Trim(StoreID))>0, 'Store',
+       If(Len(Trim(PersonID))>0, 'Person', 'Desconocido')) 				as CustomerType
 
 FROM [lib://QVDs/Customer.qvd](qvd)
 Where CustomerID>0;
@@ -107,7 +131,6 @@ LOAD
     StoreID,
     StoreName															as StoreName
 FROM [lib://QVDs/Store.qvd](qvd);
-
 
 
 /******************************************* PRODUCT *******************************************/
@@ -194,7 +217,6 @@ Resident SalesOrderDetailTemp;
 Drop Table SalesOrderDetailTemp;
 
 
-
 /******************************************* SALES *******************************************/
 
 SalesOrderHeader:
@@ -208,11 +230,12 @@ LOAD
     Freight																		as Freight,
     TaxAmt																		as TaxAmt,
     LocalCurrency																as LocalCurrency,
-    ApplyMap('Map_CurrencyRate', LocalCurrency, 1) 								as CurrencyRate,
+//    ApplyMap('Map_CurrencyRate', LocalCurrency, 1) 								as CurrencyRate,
     OnlineOrderFlag																as OnlineOrderFlag,
+    ApplyMap('Map_SalesMethod', OnlineOrderFlag, 'Desconocido')					as SalesType,
     PurchaseOrderNumber															as PurchaseOrderNumber,
     ShipMethodID				 												as ShipMethodID,
-    ApplyMap('Map_ShipMethod',ShipMethodID, 'Desconegut')						as ShipMethodName,
+    ApplyMap('Map_ShipMethod',ShipMethodID, 'Desconocido')						as ShipMethodName,
     Status																		as StatusID,
     SalesOrderNumber															as SalesOrderNumber,
 //   RevisionNumber																as RevisionNumber,
@@ -223,10 +246,10 @@ FROM [lib://QVDs/SalesOrderHeader.qvd](qvd);
 
 
 SalesOrderDetail:																//Load Precedente
-LOAD
-    *,
-    If(DiasRetraso <= 0, 1, 0) as EsATiempo,									//EsATiempo= 1 si es antes o puntuala la fecha,sino 0
-    If(DiasRetraso > 0, 1, 0) as EsRetrasado,									//EsRetrasado = 1 si llega con retraso
+LOAD															
+    *,																			//EsATiempo= 1 si es antes o puntuala la fecha,sino 0
+    If(DiasRetraso <= 0, 1, 0) 													as EsATiempo,
+    If(DiasRetraso > 0, 1, 0) 													as EsRetrasado,	//EsRetrasado = 1 si llega con retraso
 	
     Dual(																		//Dual mete número interno para que se ordene (txt,num)
         If(DiasRetraso<=0, 'A Tiempo',											//1a condición		
@@ -239,8 +262,8 @@ LOAD
           		ApplyMap('Map_DiasOrden', DiasRetraso) 							// DiasRetraso - num correspondiente del map
            )
         )
-    ) 																			as TiempoDeEnvio,															
-    
+    ) 																			as TiempoDeEnvio,
+    ApplyMap('Map_Llegada', If(DiasRetraso <= 0, 1, 0))							as TiempoDeLlegada,
     OrderQty * UnitPrice                                     					as GrossSales,
     OrderQty * UnitPrice* (1-UnitPriceDiscount) 								as LineSalesAmount,
     OrderQty * ApplyMap('Map_ProductStandardCost', ProductID, 0) 				as COGS,
@@ -311,7 +334,6 @@ LOAD
 FROM [lib://QVDs/SalesTerritoryHistory.qvd](qvd);
 
 
-
 /******************************************* VENDOR *******************************************/
 
 // Vendor < Product Vendor < Product
@@ -335,7 +357,7 @@ FROM [lib://QVDs/ProductVendor.qvd](qvd);
 Left Join(ProductVendor)
 LOAD
 	BusinessEntityID															as VendorID,
-    Name																		as VendorName,					
+    Name																		as VendorName2,					
     PreferredVendorStatus														as PreferredVendorStatus,
     ActiveFlag																	as ActiveFlag										
 //   CreditRating																as CreditRating,
@@ -351,6 +373,15 @@ Resident ProductVendor;
 Drop Table ProductVendor;
 
 
+//Cambiar null de VendorName
+//ya que hay productos que no está en el listado de vendors porque los fabrica betsys
+NewProduct:
+Load *,
+	If(IsNull(VendorName2) or Len(Trim(VendorName2))=0,'Betsys Bike',VendorName2) as VendorName
+Resident Product;
+Drop Table Product;
+Drop field VendorName2;
+Rename Table NewProduct to Product;
 
 /******************************************* EMPLOYEE *******************************************/
 
@@ -361,7 +392,7 @@ LOAD
     CurrentFlag																as CurrentFlag,
     DepartmentName															as DepartmentName,
     Title																	as Title,
-    ParentEmployeeBusinessEntityID											as ParentSalesPersonID,
+    text(ParentEmployeeBusinessEntityID)									as ParentSalesPersonID,
     SalariedFlag															as SalariedFlag,
     SalesPersonFlag															as SalesPersonFlag,
     SalesTerritoryKey														as SalesTerritoryKey
@@ -381,7 +412,17 @@ LOAD
 //    Status																as EmployeeStatus,
 //    VacationHours															as VacationHours
 FROM [lib://QVDs/Employee.qvd](qvd)
-WHERE EmployeeBusinessEntityID > 273; 										// personas que están dedicadas a ventas > 273
+WHERE EmployeeBusinessEntityID >=273;								// personas que están dedicadas a ventas > 273
+
+
+
+// ParentEmployeeName
+Left Join (Employee)
+LOAD
+    text(SalesPersonID) 													as ParentSalesPersonID,
+    EmployeeName  															as ParentEmployeeName
+Resident Employee;
+
 
 
 //Jerarquía reporta a 285 
@@ -395,8 +436,11 @@ LOAD
     '285'                             										as ParentSalesPersonID,
     -1                                 										as SalariedFlag,
     -1                                 										as SalesPersonFlag,
-    Null()                            										as SalesTerritoryKey
+    Null()                            										as SalesTerritoryKey,
+    'Abbas, Syed E'  														as ParentEmployeeName
 AutoGenerate 1;
+
+
 
 
 
@@ -434,10 +478,6 @@ LOAD
     TerritoryID                          								as ShipToAddressTerritoryID
 FROM [lib://QVDs/Address.qvd](qvd);
 
-
-
-
-
 /******************************************* MASTERCALENDAR *******************************************/
 
 [MinMaxTemp]:
@@ -457,8 +497,6 @@ DROP TABLE MinMaxTemp;
  
 
  
-
- 
 [MasterCalendar]:
 LOAD
 	OrderDate,
@@ -475,7 +513,7 @@ LOAD
     
     //Mes-Año
  	Date(MonthStart(OrderDate), 'MMM-YYYY') 															as MonthYear,
-    
+ 
 	//trimestre fiscal
     Dual('Q' & Ceil((Mod(Month(OrderDate)+5,12)+1)/3),Ceil((Mod(Month(OrderDate)+5,12)+1)/3)) 			as FiscalQuarter,
 
@@ -515,9 +553,6 @@ LOAD
     
 RESIDENT MasterCalendar_Temp;
 DROP TABLE MasterCalendar_Temp;
-
-
-
 /******************************************* QUOTA *******************************************/
 
 QuotaTemp:
@@ -616,8 +651,22 @@ Load *
 Resident Quota;
 Drop table Quota;
 
+/******************************************* CURRENCY *******************************************/
 
-/*
+Currency:
+LOAD * INLINE [
+    Local_Currency, CurrencyRate
+    USD, 1.0000
+    EUR, 0.7399
+    GBP, 0.6650
+    AUD, 1.0908
+    CAD, 1.0187
+    DEM, 1.4471
+    FRF, 4.8534
+    ];
+
+
+
 //====================================================
 // Export all tables to QVD
 //====================================================
@@ -626,4 +675,3 @@ FOR i = 0 TO NoOfTables() - 1
   LET d = TableName(i);
   STORE [$(d)] INTO [lib://QVDsFinals/$(d)].qvd (qvd);
 NEXT;
-*/
