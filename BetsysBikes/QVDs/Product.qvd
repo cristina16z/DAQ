@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+ <QvdTableHeader>
+   <QvBuildNo>50689</QvBuildNo>
+   <CreatorDoc>C:\Users\cristina.val\Documents\Qlik\Sense\Apps\BETSY'S BIKE.qvf</CreatorDoc>
+   <CreateUtcTime>2026-01-16 07:59:18</CreateUtcTime>
+   <SourceCreateUtcTime></SourceCreateUtcTime>
+   <SourceFileUtcTime></SourceFileUtcTime>
+   <SourceFileSize>-1</SourceFileSize>
+   <StaleUtcTime></StaleUtcTime>
+   <TableName>Product</TableName>
+   <Fields>
+     <QvdFieldHeader>
+       <FieldName>Class</FieldName>
+       <BitOffset>86</BitOffset>
+       <BitWidth>3</BitWidth>
+       <Bias>-2</Bias>
+       <NumberFormat>
+         <Type>UNKNOWN</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>3</NoOfSymbols>
+       <Offset>0</Offset>
+       <Length>9</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$text</String>
+         <String>$ascii</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>Color</FieldName>
+       <BitOffset>41</BitOffset>
+       <BitWidth>4</BitWidth>
+       <Bias>-2</Bias>
+       <NumberFormat>
+         <Type>UNKNOWN</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>9</NoOfSymbols>
+       <Offset>9</Offset>
+       <Length>68</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$text</String>
+         <String>$ascii</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>DaysToManufacture</FieldName>
+       <BitOffset>72</BitOffset>
+       <BitWidth>2</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>INTEGER</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>4</NoOfSymbols>
+       <Offset>77</Offset>
+       <Length>20</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+         <String>$integer</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>DiscontinuedDate</FieldName>
+       <BitOffset>101</BitOffset>
+       <BitWidth>1</BitWidth>
+       <Bias>-2</Bias>
+       <NumberFormat>
+         <Type>DATE</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>0</NoOfSymbols>
+       <Offset>97</Offset>
+       <Length>0</Length>
+       <Comment></Comment>
+       <Tags></Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>FinishedGoodsFlag</FieldName>
+       <BitOffset>102</BitOffset>
+       <BitWidth>1</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>INTEGER</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>2</NoOfSymbols>
+       <Offset>97</Offset>
+       <Length>10</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+         <String>$integer</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>ListPrice</FieldName>
+       <BitOffset>9</BitOffset>
+       <BitWidth>7</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>MONEY</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>103</NoOfSymbols>
+       <Offset>107</Offset>
+       <Length>903</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>MakeFlag</FieldName>
+       <BitOffset>103</BitOffset>
+       <BitWidth>1</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>INTEGER</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>2</NoOfSymbols>
+       <Offset>1010</Offset>
+       <Length>10</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+         <String>$integer</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>Name</FieldName>
+       <BitOffset>0</BitOffset>
+       <BitWidth>9</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>UNKNOWN</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>504</NoOfSymbols>
+       <Offset>1020</Offset>
+       <Length>10286</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$text</String>
+         <String>$ascii</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>ProductID</FieldName>
+       <BitOffset>23</BitOffset>
+       <BitWidth>9</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>INTEGER</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>504</NoOfSymbols>
+       <Offset>11306</Offset>
+       <Length>2520</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+         <String>$integer</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>ProductLine</FieldName>
+       <BitOffset>89</BitOffset>
+       <BitWidth>3</BitWidth>
+       <Bias>-2</Bias>
+       <NumberFormat>
+         <Type>UNKNOWN</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>4</NoOfSymbols>
+       <Offset>13826</Offset>
+       <Length>12</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$text</String>
+         <String>$ascii</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>ProductModelID</FieldName>
+       <BitOffset>16</BitOffset>
+       <BitWidth>7</BitWidth>
+       <Bias>-2</Bias>
+       <NumberFormat>
+         <Type>INTEGER</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>119</NoOfSymbols>
+       <Offset>13838</Offset>
+       <Length>595</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+         <String>$integer</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>ProductNumber</FieldName>
+       <BitOffset>32</BitOffset>
+       <BitWidth>9</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>UNKNOWN</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>504</NoOfSymbols>
+       <Offset>14433</Offset>
+       <Length>5139</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$text</String>
+         <String>$ascii</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>ProductSubcategoryID</FieldName>
+       <BitOffset>50</BitOffset>
+       <BitWidth>6</BitWidth>
+       <Bias>-2</Bias>
+       <NumberFormat>
+         <Type>INTEGER</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>37</NoOfSymbols>
+       <Offset>19572</Offset>
+       <Length>185</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+         <String>$integer</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>ReorderPoint</FieldName>
+       <BitOffset>92</BitOffset>
+       <BitWidth>3</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>INTEGER</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>6</NoOfSymbols>
+       <Offset>19757</Offset>
+       <Length>30</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+         <String>$integer</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>SafetyStockLevel</FieldName>
+       <BitOffset>95</BitOffset>
+       <BitWidth>3</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>INTEGER</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>6</NoOfSymbols>
+       <Offset>19787</Offset>
+       <Length>30</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+         <String>$integer</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>SellEndDate</FieldName>
+       <BitOffset>74</BitOffset>
+       <BitWidth>6</BitWidth>
+       <Bias>-2</Bias>
+       <NumberFormat>
+         <Type>DATE</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>2</NoOfSymbols>
+       <Offset>19817</Offset>
+       <Length>10</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+         <String>$integer</String>
+         <String>$timestamp</String>
+         <String>$date</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>SellStartDate</FieldName>
+       <BitOffset>80</BitOffset>
+       <BitWidth>2</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>DATE</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>4</NoOfSymbols>
+       <Offset>19827</Offset>
+       <Length>20</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+         <String>$integer</String>
+         <String>$timestamp</String>
+         <String>$date</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>Size</FieldName>
+       <BitOffset>45</BitOffset>
+       <BitWidth>5</BitWidth>
+       <Bias>-2</Bias>
+       <NumberFormat>
+         <Type>UNKNOWN</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>18</NoOfSymbols>
+       <Offset>19847</Offset>
+       <Length>125</Length>
+       <Comment></Comment>
+       <Tags></Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>SizeUnitMeasureCode</FieldName>
+       <BitOffset>82</BitOffset>
+       <BitWidth>2</BitWidth>
+       <Bias>-2</Bias>
+       <NumberFormat>
+         <Type>UNKNOWN</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>1</NoOfSymbols>
+       <Offset>19972</Offset>
+       <Length>4</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$text</String>
+         <String>$ascii</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>StandardCost</FieldName>
+       <BitOffset>64</BitOffset>
+       <BitWidth>8</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>MONEY</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>114</NoOfSymbols>
+       <Offset>19976</Offset>
+       <Length>1022</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>Style</FieldName>
+       <BitOffset>98</BitOffset>
+       <BitWidth>3</BitWidth>
+       <Bias>-2</Bias>
+       <NumberFormat>
+         <Type>UNKNOWN</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>3</NoOfSymbols>
+       <Offset>20998</Offset>
+       <Length>9</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$text</String>
+         <String>$ascii</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>Weight</FieldName>
+       <BitOffset>56</BitOffset>
+       <BitWidth>8</BitWidth>
+       <Bias>-2</Bias>
+       <NumberFormat>
+         <Type>FIX</Type>
+         <nDec>2</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>127</NoOfSymbols>
+       <Offset>21007</Offset>
+       <Length>1031</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>WeightUnitMeasureCode</FieldName>
+       <BitOffset>84</BitOffset>
+       <BitWidth>2</BitWidth>
+       <Bias>-2</Bias>
+       <NumberFormat>
+         <Type>UNKNOWN</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>2</NoOfSymbols>
+       <Offset>22038</Offset>
+       <Length>7</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$text</String>
+         <String>$ascii</String>
+       </Tags>
+     </QvdFieldHeader>
+   </Fields>
+   <Compression></Compression>
+   <RecordByteSize>13</RecordByteSize>
+   <NoOfRecords>504</NoOfRecords>
+   <Offset>22045</Offset>
+   <Length>6552</Length>
+   <Lineage></Lineage>
+   <Comment></Comment>
+   <EncryptionInfo></EncryptionInfo>
+   <TableTags></TableTags>
+   <ProfilingData></ProfilingData>
+ </QvdTableHeader>
+ L M H Black Silver Red White Blue Multi Yellow Grey Silver/Black                  ˇˇˇˇ    {ÆG·™`@ÆG·zdb@=
+◊£pùh@     ^ñ@ÖÎQ∏~A@      #@{ÆG·˙!@ÖÎQ∏˛H@ÏQ∏Öu@q=
+◊£ñÇ@     Rï@fffffï@◊£p=äÙ´@)\è¬ı«ñ@R∏ÖÎwà@ÆG·˙è™@ÆG·˙]™@ÆG·˙¢@ÆG·˙Ì°@)\è¬ıﬂê@3333≥£@)\è¬ıÅë@◊£p=
+áb@H·zÆÔe@H·zÆØl@öôôôôA@√ı(\èíY@ÖÎQ∏._@ÖÎQ∏EF@ˆ(\è¬ıN@·zÆG^@\è¬ı(Ãu@è¬ı(\_N@ÕÃÃÃÃ j@=
+◊£p√r@\è¬ı(dU@∏ÖÎQo@)\è¬ı†t@∏ÖÎQ@k@H·zÆÔU@ÕÃÃÃÃÄm@=
+◊£pst@\è¬ı($\@\è¬ı(6q@)\è¬ıPv@∏ÖÎQ†n@ÖÎQ∏˛M@}      =
+◊£p˝3@=
+◊£p˝8@{ÆG·˙+@ÖÎQ∏~F@è¬ı(\øR@è¬ı(\V@=
+◊£p}8@ÖÎQ∏˛B@     ¿O@è¬ı(\Q@ˆ(\è¬ı@{ÆG·˙#@R∏ÖÎQ@x   ÕÃÃÃÃÃ@{ÆG·˙5@ü   ÖÎQ∏~K@ÖÎQ∏˛J@·zÆG_è@ÖÎQ∏÷t@=
+◊£p]^@=
+◊£p¡v@     †Z@ÖÎQ∏;@R∏ÖÎëC@R∏ÖÎQJ@ÕÃÃÃÃÄp@ÏQ∏ÖÎ@·zÆG9o@=
+◊£p˝=@#   =
+◊£p}5@ÕÃÃÃÃL@@=
+◊£p˝<@ÖÎQ∏>D@ÏQ∏ÖO@è¬ı(\?T@è¬ı(\ﬂV@ÏQ∏ÖG@ÆG·z‰V@§p=
+◊p@§p=
+◊Oy@=
+◊£p=4@fffff˚í@q=
+◊#†¢@ÕÃÃÃÃ2á@)\è¬ıìö@R∏ÖÎﬂÄ@R∏ÖÎà@R∏ÖÎßÅ@è¬ı(\OY@è¬ı(\_^@    ˇˇˇˇAdjustable Race Bearing Ball BB Ball Bearing Headset Ball Bearings Blade LL Crankarm ML Crankarm HL Crankarm Chainring Bolts Chainring Nut Chainring Crown Race Chain Stays Decal 1 Decal 2 Down Tube Mountain End Caps Road End Caps Touring End Caps Fork End Freewheel Flat Washer 1 Flat Washer 6 Flat Washer 2 Flat Washer 9 Flat Washer 4 Flat Washer 3 Flat Washer 8 Flat Washer 5 Flat Washer 7 Fork Crown Front Derailleur Cage Front Derailleur Linkage Guide Pulley LL Grip Tape ML Grip Tape HL Grip Tape Thin-Jam Hex Nut 9 Thin-Jam Hex Nut 10 Thin-Jam Hex Nut 1 Thin-Jam Hex Nut 2 Thin-Jam Hex Nut 15 Thin-Jam Hex Nut 16 Thin-Jam Hex Nut 5 Thin-Jam Hex Nut 6 Thin-Jam Hex Nut 3 Thin-Jam Hex Nut 4 Thin-Jam Hex Nut 13 Thin-Jam Hex Nut 14 Thin-Jam Hex Nut 7 Thin-Jam Hex Nut 8 Thin-Jam Hex Nut 12 Thin-Jam Hex Nut 11 Hex Nut 5 Hex Nut 6 Hex Nut 16 Hex Nut 17 Hex Nut 7 Hex Nut 8 Hex Nut 9 Hex Nut 22 Hex Nut 23 Hex Nut 12 Hex Nut 13 Hex Nut 1 Hex Nut 10 Hex Nut 11 Hex Nut 2 Hex Nut 20 Hex Nut 21 Hex Nut 3 Hex Nut 14 Hex Nut 15 Hex Nut 4 Hex Nut 18 Hex Nut 19 Handlebar Tube Head Tube LL Hub HL Hub Keyed Washer External Lock Washer 3 External Lock Washer 4 External Lock Washer 9 External Lock Washer 5 External Lock Washer 7 External Lock Washer 6 External Lock Washer 1 External Lock Washer 8 External Lock Washer 2 Internal Lock Washer 3 Internal Lock Washer 4 Internal Lock Washer 9 Internal Lock Washer 5 Internal Lock Washer 7 Internal Lock Washer 6 Internal Lock Washer 10 Internal Lock Washer 1 Internal Lock Washer 8 Internal Lock Washer 2 Thin-Jam Lock Nut 9 Thin-Jam Lock Nut 10 Thin-Jam Lock Nut 1 Thin-Jam Lock Nut 2 Thin-Jam Lock Nut 15 Thin-Jam Lock Nut 16 Thin-Jam Lock Nut 5 Thin-Jam Lock Nut 6 Thin-Jam Lock Nut 3 Thin-Jam Lock Nut 4 Thin-Jam Lock Nut 13 Thin-Jam Lock Nut 14 Thin-Jam Lock Nut 7 Thin-Jam Lock Nut 8 Thin-Jam Lock Nut 12 Thin-Jam Lock Nut 11 Lock Nut 5 Lock Nut 6 Lock Nut 16 Lock Nut 17 Lock Nut 7 Lock Nut 8 Lock Nut 9 Lock Nut 22 Lock Nut 23 Lock Nut 12 Lock Nut 13 Lock Nut 1 Lock Nut 10 Lock Nut 11 Lock Nut 2 Lock Nut 20 Lock Nut 21 Lock Nut 3 Lock Nut 14 Lock Nut 15 Lock Nut 4 Lock Nut 19 Lock Nut 18 Lock Ring Lower Head Race Lock Washer 4 Lock Washer 5 Lock Washer 10 Lock Washer 6 Lock Washer 13 Lock Washer 8 Lock Washer 1 Lock Washer 7 Lock Washer 12 Lock Washer 2 Lock Washer 9 Lock Washer 3 Lock Washer 11 Metal Angle Metal Bar 1 Metal Bar 2 Metal Plate 2 Metal Plate 1 Metal Plate 3 Metal Sheet 2 Metal Sheet 3 Metal Sheet 7 Metal Sheet 4 Metal Sheet 5 Metal Sheet 6 Metal Sheet 1 Metal Tread Plate LL Nipple HL Nipple Paint - Black Paint - Red Paint - Silver Paint - Blue Paint - Yellow Pinch Bolt Cup-Shaped Race Cone-Shaped Race Reflector LL Mountain Rim ML Mountain Rim HL Mountain Rim LL Road Rim ML Road Rim HL Road Rim Touring Rim LL Mountain Seat Assembly ML Mountain Seat Assembly HL Mountain Seat Assembly LL Road Seat Assembly ML Road Seat Assembly HL Road Seat Assembly LL Touring Seat Assembly ML Touring Seat Assembly HL Touring Seat Assembly LL Spindle/Axle HL Spindle/Axle LL Shell HL Shell Spokes Seat Lug Stem Seat Post Steerer Seat Stays Seat Tube Top Tube Tension Pulley Rear Derailleur Cage HL Road Frame - Black, 58 HL Road Frame - Red, 58 Sport-100 Helmet, Red Sport-100 Helmet, Black Mountain Bike Socks, M Mountain Bike Socks, L Sport-100 Helmet, Blue AWC Logo Cap Long-Sleeve Logo Jersey, S Long-Sleeve Logo Jersey, M Long-Sleeve Logo Jersey, L Long-Sleeve Logo Jersey, XL HL Road Frame - Red, 62 HL Road Frame - Red, 44 HL Road Frame - Red, 48 HL Road Frame - Red, 52 HL Road Frame - Red, 56 LL Road Frame - Black, 58 LL Road Frame - Black, 60 LL Road Frame - Black, 62 LL Road Frame - Red, 44 LL Road Frame - Red, 48 LL Road Frame - Red, 52 LL Road Frame - Red, 58 LL Road Frame - Red, 60 LL Road Frame - Red, 62 ML Road Frame - Red, 44 ML Road Frame - Red, 48 ML Road Frame - Red, 52 ML Road Frame - Red, 58 ML Road Frame - Red, 60 LL Road Frame - Black, 44 LL Road Frame - Black, 48 LL Road Frame - Black, 52 HL Mountain Frame - Silver, 42 HL Mountain Frame - Silver, 44 HL Mountain Frame - Silver, 48 HL Mountain Frame - Silver, 46 HL Mountain Frame - Black, 42 HL Mountain Frame - Black, 44 HL Mountain Frame - Black, 48 HL Mountain Frame - Black, 46 HL Mountain Frame - Black, 38 HL Mountain Frame - Silver, 38 Road-150 Red, 62 Road-150 Red, 44 Road-150 Red, 48 Road-150 Red, 52 Road-150 Red, 56 Road-450 Red, 58 Road-450 Red, 60 Road-450 Red, 44 Road-450 Red, 48 Road-450 Red, 52 Road-650 Red, 58 Road-650 Red, 60 Road-650 Red, 62 Road-650 Red, 44 Road-650 Red, 48 Road-650 Red, 52 Road-650 Black, 58 Road-650 Black, 60 Road-650 Black, 62 Road-650 Black, 44 Road-650 Black, 48 Road-650 Black, 52 Mountain-100 Silver, 38 Mountain-100 Silver, 42 Mountain-100 Silver, 44 Mountain-100 Silver, 48 Mountain-100 Black, 38 Mountain-100 Black, 42 Mountain-100 Black, 44 Mountain-100 Black, 48 Mountain-200 Silver, 38 Mountain-200 Silver, 42 Mountain-200 Silver, 46 Mountain-200 Black, 38 Mountain-200 Black, 42 Mountain-200 Black, 46 Mountain-300 Black, 38 Mountain-300 Black, 40 Mountain-300 Black, 44 Mountain-300 Black, 48 Road-250 Red, 44 Road-250 Red, 48 Road-250 Red, 52 Road-250 Red, 58 Road-250 Black, 44 Road-250 Black, 48 Road-250 Black, 52 Road-250 Black, 58 Road-550-W Yellow, 38 Road-550-W Yellow, 40 Road-550-W Yellow, 42 Road-550-W Yellow, 44 Road-550-W Yellow, 48 LL Fork ML Fork HL Fork LL Headset ML Headset HL Headset LL Mountain Handlebars ML Mountain Handlebars HL Mountain Handlebars LL Road Handlebars ML Road Handlebars HL Road Handlebars ML Mountain Frame - Black, 38 LL Mountain Front Wheel ML Mountain Front Wheel HL Mountain Front Wheel LL Road Front Wheel ML Road Front Wheel HL Road Front Wheel Touring Front Wheel ML Road Frame-W - Yellow, 38 LL Mountain Rear Wheel ML Mountain Rear Wheel HL Mountain Rear Wheel LL Road Rear Wheel ML Road Rear Wheel HL Road Rear Wheel Touring Rear Wheel ML Mountain Frame - Black, 40 ML Mountain Frame - Black, 44 ML Mountain Frame - Black, 48 ML Road Frame-W - Yellow, 40 ML Road Frame-W - Yellow, 42 ML Road Frame-W - Yellow, 44 ML Road Frame-W - Yellow, 48 HL Road Frame - Black, 62 HL Road Frame - Black, 44 HL Road Frame - Black, 48 HL Road Frame - Black, 52 Men's Sports Shorts, S Touring-Panniers, Large Cable Lock Minipump Mountain Pump Taillights - Battery-Powered Headlights - Dual-Beam Headlights - Weatherproof Men's Sports Shorts, M Men's Sports Shorts, L Men's Sports Shorts, XL Women's Tights, S Women's Tights, M Women's Tights, L Men's Bib-Shorts, S Men's Bib-Shorts, M Men's Bib-Shorts, L Half-Finger Gloves, S Half-Finger Gloves, M Half-Finger Gloves, L Full-Finger Gloves, S Full-Finger Gloves, M Full-Finger Gloves, L Classic Vest, S Classic Vest, M Classic Vest, L Women's Mountain Shorts, S Women's Mountain Shorts, M Women's Mountain Shorts, L Water Bottle - 30 oz. Mountain Bottle Cage Road Bottle Cage Patch Kit/8 Patches Racing Socks, M Racing Socks, L Hitch Rack - 4-Bike Bike Wash - Dissolver Fender Set - Mountain All-Purpose Bike Stand Hydration Pack - 70 oz. Short-Sleeve Classic Jersey, S Short-Sleeve Classic Jersey, M Short-Sleeve Classic Jersey, L Short-Sleeve Classic Jersey, XL HL Touring Frame - Yellow, 60 LL Touring Frame - Yellow, 62 HL Touring Frame - Yellow, 46 HL Touring Frame - Yellow, 50 HL Touring Frame - Yellow, 54 HL Touring Frame - Blue, 46 HL Touring Frame - Blue, 50 HL Touring Frame - Blue, 54 HL Touring Frame - Blue, 60 Rear Derailleur LL Touring Frame - Blue, 50 LL Touring Frame - Blue, 54 LL Touring Frame - Blue, 58 LL Touring Frame - Blue, 62 LL Touring Frame - Yellow, 44 LL Touring Frame - Yellow, 50 LL Touring Frame - Yellow, 54 LL Touring Frame - Yellow, 58 LL Touring Frame - Blue, 44 ML Mountain Frame-W - Silver, 40 ML Mountain Frame-W - Silver, 42 ML Mountain Frame-W - Silver, 46 Rear Brakes LL Mountain Seat/Saddle ML Mountain Seat/Saddle HL Mountain Seat/Saddle LL Road Seat/Saddle ML Road Seat/Saddle HL Road Seat/Saddle LL Touring Seat/Saddle ML Touring Seat/Saddle HL Touring Seat/Saddle LL Mountain Frame - Silver, 42 LL Mountain Frame - Silver, 44 LL Mountain Frame - Silver, 48 LL Mountain Frame - Silver, 52 Mountain Tire Tube Road Tire Tube Touring Tire Tube LL Mountain Frame - Black, 42 LL Mountain Frame - Black, 44 LL Mountain Frame - Black, 48 LL Mountain Frame - Black, 52 LL Mountain Tire ML Mountain Tire HL Mountain Tire LL Road Tire ML Road Tire HL Road Tire Touring Tire LL Mountain Pedal ML Mountain Pedal HL Mountain Pedal LL Road Pedal ML Road Pedal HL Road Pedal Touring Pedal ML Mountain Frame-W - Silver, 38 LL Mountain Frame - Black, 40 LL Mountain Frame - Silver, 40 Front Derailleur LL Touring Handlebars HL Touring Handlebars Front Brakes LL Crankset ML Crankset HL Crankset Chain Touring-2000 Blue, 60 Touring-1000 Yellow, 46 Touring-1000 Yellow, 50 Touring-1000 Yellow, 54 Touring-1000 Yellow, 60 Touring-3000 Blue, 54 Touring-3000 Blue, 58 Touring-3000 Blue, 62 Touring-3000 Yellow, 44 Touring-3000 Yellow, 50 Touring-3000 Yellow, 54 Touring-3000 Yellow, 58 Touring-3000 Yellow, 62 Touring-1000 Blue, 46 Touring-1000 Blue, 50 Touring-1000 Blue, 54 Touring-1000 Blue, 60 Touring-2000 Blue, 46 Touring-2000 Blue, 50 Touring-2000 Blue, 54 Road-350-W Yellow, 40 Road-350-W Yellow, 42 Road-350-W Yellow, 44 Road-350-W Yellow, 48 Road-750 Black, 58 Touring-3000 Blue, 44 Touring-3000 Blue, 50 Mountain-400-W Silver, 38 Mountain-400-W Silver, 40 Mountain-400-W Silver, 42 Mountain-400-W Silver, 46 Mountain-500 Silver, 40 Mountain-500 Silver, 42 Mountain-500 Silver, 44 Mountain-500 Silver, 48 Mountain-500 Silver, 52 Mountain-500 Black, 40 Mountain-500 Black, 42 Mountain-500 Black, 44 Mountain-500 Black, 48 Mountain-500 Black, 52 LL Bottom Bracket ML Bottom Bracket HL Bottom Bracket Road-750 Black, 44 Road-750 Black, 48 Road-750 Black, 52             <  =  >  ?  @  A  B  C  D  E  F  G  H  I  J  K  L  U  V  W  X  Y  Z  [  \  ]  ^  _  `  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z  {  |  }  ~    Ä  Å  Ç  É  Ñ  Ö  Ü  á  à  â  ä  ã  å  ç  é  è  ê  ë  í  ì  î  ï  ñ  ó  ò  ô  ö  õ  ú  ù  û  ü  †  °  ¢  £  §  •  ¶  ß  ®  ©  ™  ´  ¨  ≠  Æ  Ø  ∞  ±  ≤  ≥  ¥  µ  ∂  ∑  ∏  π  ∫  ª  º  Ω  æ  ø  ¿  ¡  ¬  √  ƒ  ≈  ∆  «  »  …     À  Ã  Õ  Œ  œ  –  —  “  ”  ‘  ’  ÷  ◊  ÿ  Ÿ  ⁄  €  ‹  ›  ﬁ  ﬂ  ‡  ·  ‚  „  ‰  Â  Ê  Á  Ë  È  Í  Î  Ï  Ì  Ó  Ô    Ò  ¯  ˘  ˙  ˚  ¸  ˝  ˛  ˇ                     	  
+                            ß  ®  ¬  √  ƒ  ≈  ∆  «  »  …     À  Ã  Õ  Œ  œ  –  —  “  ”  ‘  ’  ÷  ◊  ÿ  Ÿ  ⁄  €  ‹  ›  ﬁ  ﬂ  ‡  ·  ‚  „  ‰  Â  Ê  Á  Ë  È  Í  Î  Ï  Ì  Ó  Ô    Ò  Ú  Û  Ù  ı  ˆ  ˜  ¯  ˘  ˙  ˚  ¸  ˝  ˛  ˇ                     	  
+                                               !  "  #  $  %  &  '  (  )  *  +  ,  -  .  /  0  1  2  3  4  5  6  7  8  9  :  ;  <  =  >  ?  @  A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z  [  \  ]  ^  _  `  a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z  {  |  }  ~    Ä  Å  Ç  É  Ñ  Ö  Ü  á  à  â  ä  ã  å  ç  é  è  ê  ë  í  ì  î  ï  ñ  ó  ò  ô  ö  õ  ú  ù  û  ü  †  °  ¢  £  §  •  ¶  ß  ®  ©  ™  ´  ¨  ≠  Æ  Ø  ∞  ±  ≤  ≥  ¥  µ  ∂  ∑  ∏  π  ∫  ª  º  Ω  æ  ø  ¿  ¡  ¬  √  ƒ  ≈  ∆  «  »  …     À  Ã  Õ  Œ  œ  –  —  “  ”  ‘  ’  ÷  ◊  ÿ  Ÿ  ⁄  €  ‹  ›  ﬁ  ﬂ  ‡  ·  ‚  „  ‰  Â  Ê  Á  R S M T    !            	                                 h   i   j   ;   <   =   4   6   7   8   9   :      *   -   .   1   2   3   ,      {   |   }   ~   M   N   +         x   s   t   u   l   m   n   &               %   o   p   q   r      v   w   y   z   k          
+      Ä   O   P   Q   R   S   T   B   A   C      \   ]   ^   U   V   W   X   Y   Z   [   >   ?   @   D   E   F   5   g   /   0   f   c   d   e   b   #   "   $               _   `   a   AR-5381 BA-8327 BE-2349 BE-2908 BL-2036 CA-5965 CA-6738 CA-7457 CB-2903 CN-6137 CR-7833 CR-9981 CS-2812 DC-8732 DC-9824 DT-2377 EC-M092 EC-R098 EC-T209 FE-3760 FH-2981 FW-1000 FW-1200 FW-1400 FW-3400 FW-3800 FW-5160 FW-5800 FW-7160 FW-9160 FC-3654 FC-3982 FL-2301 GP-0982 GT-0820 GT-1209 GT-2908 HJ-1213 HJ-1220 HJ-1420 HJ-1428 HJ-3410 HJ-3416 HJ-3816 HJ-3824 HJ-5161 HJ-5162 HJ-5811 HJ-5818 HJ-7161 HJ-7162 HJ-9080 HJ-9161 HN-1024 HN-1032 HN-1213 HN-1220 HN-1224 HN-1420 HN-1428 HN-3410 HN-3416 HN-3816 HN-3824 HN-4402 HN-5161 HN-5162 HN-5400 HN-5811 HN-5818 HN-6320 HN-7161 HN-7162 HN-8320 HN-9161 HN-9168 HT-2981 HT-8019 HU-6280 HU-8998 KW-4091 LE-1000 LE-1200 LE-1201 LE-1400 LE-3800 LE-5160 LE-6000 LE-7160 LE-8000 LI-1000 LI-1200 LI-1201 LI-1400 LI-3800 LI-5160 LI-5800 LI-6000 LI-7160 LI-8000 LJ-1213 LJ-1220 LJ-1420 LJ-1428 LJ-3410 LJ-3416 LJ-3816 LJ-3824 LJ-5161 LJ-5162 LJ-5811 LJ-5818 LJ-7161 LJ-7162 LJ-9080 LJ-9161 LN-1024 LN-1032 LN-1213 LN-1220 LN-1224 LN-1420 LN-1428 LN-3410 LN-3416 LN-3816 LN-3824 LN-4400 LN-5161 LN-5162 LN-5400 LN-5811 LN-5818 LN-6320 LN-7161 LN-7162 LN-8320 LN-9080 LN-9161 LR-2398 LR-8520 LW-1000 LW-1200 LW-1201 LW-1400 LW-3400 LW-3800 LW-4000 LW-5160 LW-5800 LW-6000 LW-7160 LW-8000 LW-9160 MA-7075 MB-2024 MB-6061 MP-2066 MP-2503 MP-4960 MS-0253 MS-1256 MS-1981 MS-2259 MS-2341 MS-2348 MS-6061 MT-1000 NI-4127 NI-9522 PA-187B PA-361R PA-529S PA-632U PA-823Y PB-6109 RA-2345 RA-7490 RF-9198 RM-M464 RM-M692 RM-M823 RM-R436 RM-R600 RM-R800 RM-T801 SA-M198 SA-M237 SA-M687 SA-R127 SA-R430 SA-R522 SA-T467 SA-T612 SA-T872 SD-2342 SD-9872 SH-4562 SH-9312 SK-9283 SL-0931 SM-9087 SP-2981 SR-2098 SS-2985 ST-9828 TO-2301 TP-0923 RC-0291 FR-R92B-58 FR-R92R-58 HL-U509-R HL-U509 SO-B909-M SO-B909-L HL-U509-B CA-1098 LJ-0192-S LJ-0192-M LJ-0192-L LJ-0192-X FR-R92R-62 FR-R92R-44 FR-R92R-48 FR-R92R-52 FR-R92R-56 FR-R38B-58 FR-R38B-60 FR-R38B-62 FR-R38R-44 FR-R38R-48 FR-R38R-52 FR-R38R-58 FR-R38R-60 FR-R38R-62 FR-R72R-44 FR-R72R-48 FR-R72R-52 FR-R72R-58 FR-R72R-60 FR-R38B-44 FR-R38B-48 FR-R38B-52 FR-M94S-42 FR-M94S-44 FR-M94S-52 FR-M94S-46 FR-M94B-42 FR-M94B-44 FR-M94B-48 FR-M94B-46 FR-M94B-38 FR-M94S-38 BK-R93R-62 BK-R93R-44 BK-R93R-48 BK-R93R-52 BK-R93R-56 BK-R68R-58 BK-R68R-60 BK-R68R-44 BK-R68R-48 BK-R68R-52 BK-R50R-58 BK-R50R-60 BK-R50R-62 BK-R50R-44 BK-R50R-48 BK-R50R-52 BK-R50B-58 BK-R50B-60 BK-R50B-62 BK-R50B-44 BK-R50B-48 BK-R50B-52 BK-M82S-38 BK-M82S-42 BK-M82S-44 BK-M82S-48 BK-M82B-38 BK-M82B-42 BK-M82B-44 BK-M82B-48 BK-M68S-38 BK-M68S-42 BK-M68S-46 BK-M68B-38 BK-M68B-42 BK-M68B-46 BK-M47B-38 BK-M47B-40 BK-M47B-44 BK-M47B-48 BK-R89R-44 BK-R89R-48 BK-R89R-52 BK-R89R-58 BK-R89B-44 BK-R89B-48 BK-R89B-52 BK-R89B-58 BK-R64Y-38 BK-R64Y-40 BK-R64Y-42 BK-R64Y-44 BK-R64Y-48 FK-1639 FK-5136 FK-9939 HS-0296 HS-2451 HS-3479 HB-M243 HB-M763 HB-M918 HB-R504 HB-R720 HB-R956 FR-M63B-38 FW-M423 FW-M762 FW-M928 FW-R623 FW-R762 FW-R820 FW-T905 FR-R72Y-38 RW-M423 RW-M762 RW-M928 RW-R623 RW-R762 RW-R820 RW-T905 FR-M63B-40 FR-M63B-44 FR-M63B-48 FR-R72Y-40 FR-R72Y-42 FR-R72Y-44 FR-R72Y-48 FR-R92B-62 FR-R92B-44 FR-R92B-48 FR-R92B-52 SH-M897-S PA-T100 LO-C100 PU-0452 PU-M044 LT-T990 LT-H902 LT-H903 SH-M897-M SH-M897-L SH-M897-X TG-W091-S TG-W091-M TG-W091-L SB-M891-S SB-M891-M SB-M891-L GL-H102-S GL-H102-M GL-H102-L GL-F110-S GL-F110-M GL-F110-L VE-C304-S VE-C304-M VE-C304-L SH-W890-S SH-W890-M SH-W890-L WB-H098 BC-M005 BC-R205 PK-7098 SO-R809-M SO-R809-L RA-H123 CL-9009 FE-6654 ST-1401 HY-1023-70 SJ-0194-S SJ-0194-M SJ-0194-L SJ-0194-X FR-T98Y-60 FR-T67Y-62 FR-T98Y-46 FR-T98Y-50 FR-T98Y-54 FR-T98U-46 FR-T98U-50 FR-T98U-54 FR-T98U-60 RD-2308 FR-T67U-50 FR-T67U-54 FR-T67U-58 FR-T67U-62 FR-T67Y-44 FR-T67Y-50 FR-T67Y-54 FR-T67Y-58 FR-T67U-44 FR-M63S-40 FR-M63S-42 FR-M63S-46 RB-9231 SE-M236 SE-M798 SE-M940 SE-R581 SE-R908 SE-R995 SE-T312 SE-T762 SE-T924 FR-M21S-42 FR-M21S-44 FR-M21S-48 FR-M21S-52 TT-M928 TT-R982 TT-T092 FR-M21B-42 FR-M21B-44 FR-M21B-48 FR-M21B-52 TI-M267 TI-M602 TI-M823 TI-R092 TI-R628 TI-R982 TI-T723 PD-M282 PD-M340 PD-M562 PD-R347 PD-R563 PD-R853 PD-T852 FR-M63S-38 FR-M21B-40 FR-M21S-40 FD-2342 HB-T721 HB-T928 FB-9873 CS-4759 CS-6583 CS-9183 CH-0234 BK-T44U-60 BK-T79Y-46 BK-T79Y-50 BK-T79Y-54 BK-T79Y-60 BK-T18U-54 BK-T18U-58 BK-T18U-62 BK-T18Y-44 BK-T18Y-50 BK-T18Y-54 BK-T18Y-58 BK-T18Y-62 BK-T79U-46 BK-T79U-50 BK-T79U-54 BK-T79U-60 BK-T44U-46 BK-T44U-50 BK-T44U-54 BK-R79Y-40 BK-R79Y-42 BK-R79Y-44 BK-R79Y-48 BK-R19B-58 BK-T18U-44 BK-T18U-50 BK-M38S-38 BK-M38S-40 BK-M38S-42 BK-M38S-46 BK-M18S-40 BK-M18S-42 BK-M18S-44 BK-M18S-48 BK-M18S-52 BK-M18B-40 BK-M18B-42 BK-M18B-44 BK-M18B-48 BK-M18B-52 BB-7421 BB-8107 BB-9108 BK-R19B-44 BK-R19B-48 BK-R19B-52                         
+               #   "   $   !                  %                      	                        Ó  X  w  -      K   Ë     Ù  <      d   =í  ™ì  ÿç  >í  ´ì  ï  :   58 M L S XL >   62 ,   44 0   48 4   52 8   56 <   60 *   42 .   46 &   38 (   40 F   70 2   50 6   54 CM     ·zÆG±X@è¬ı(\?[@§p=
+◊;b@
+◊£p=çê@#J{É/,*@=õUü+@8gDio∞@È∑Ø?C@¸s◊%ã@Y∑— îi@tFîˆeg@ ë~˚:v@F%uöYá@shëÌ|Ü@ŸŒ˜Sá@ç(ÌæÿÖ@˜‰a°ñˆ†@æ0ô™•ã@®5Õ;Nk~@öû‡ù@¯¬d™`®ù@}?5^z∆ì@B>ËŸÏèì@m≈˛≤{≥Ç@L¶
+F%ªó@É/L¶ Kò@ƒ±.n£HÜ@è‰Ú“sP@–≥YıπzS@)Ìæ0yY@öû^.@Ö|–≥YµF@‘öÊß∞K@ü<,‘ö∆3@ÆG·z~;@–’VÏ/≥J@ú3¢¥7:g@ÒÙJYÜ¯:@Å&¬Üß3W@˙~jºt©`@üÕ™œ’˛B@uöí[@ÃHø}Qb@4¢¥7¯2X@≥Ísµèv@–≥YıπzC@-CÎ‚2Z@Pçón)b@˜_òL˝H@!ÙlVë^@"éuq—c@‡æú32[@jMÛæ8@     »I@     †$@=,‘öÊ} @=,‘öÊù$@ÚAœf@=,‘öÊ›,@jMÛé2@jMÛÓ>@µ¶yèB@oÅ≈èQ"@÷≈m4ÄW/@9¥»væø7@ÈH.ˇ!-:@ïeàc]‹˝?¿[ AÒ„@ıπ⁄ä˝Â
+@úƒ ∞rhÎ?q=
+◊£pF@ì©ÇQ…@7âA`Âp @œ˜S„•ªM@åπk	˘ê4@¿[ A…D@HP¸ÛÕÇ@ÃÓ…√B˚h@◊ÚAœˆJ@n£ºÏh@¯S„•õ§G@L¶
+F%(@‚X∑—`1@:íÀH_7@¨ã€h b@ˇ!˝ˆu‡˜?ÖÎQ∏a@®5Õ;N±"@Ê?§ﬂæn&@ÆG·z.*@HP¸ @4Ä∑@Çb(@s◊ÚAØ%@—ë\˛C˙1@≈ ∞rhë;@Ìû<,‘˙A@»òªñêOD@X9¥»v4@ŒQ⁄TD@’	h"lx\@√”+ezf@öwú¢#˘!@Âa°÷4ôá@¨ã€h¿'ó@,‘öÊ◊|@◊£p=
+Íê@µ7¯¬dzu@MÛéSt<z@∆‹µÑ|Cs@‹◊ÅsFir@)À«∫¯7@Ô…√B≠yF@ÒÙJYÜ¯J@U W M ≥  ¬  ê  Ω  Ã  ÏQ∏ÖÎ@ffffff@ˆ(\è¬ı @H·zÆG@öôôôôô@ÆG·zÆ@◊£p=
+◊@      @è¬ı(\è@·zÆG·@333333@√ı(\è¬@ÆG·z@
+◊£p=
+@√ı(\è¬@ÆG·z@ffffff@∏ÖÎQ∏@q=
+◊£p@   
+◊£p=ä+@√ı(\èB,@◊£p=
+◊,@\è¬ı(\-@
+◊£p= 1@fffffÊ1@ÖÎQ∏≈0@·zÆG!1@ÏQ∏Ök1@
+◊£p= 3@fffffÊ3@   ÖÎQ∏≈2@·zÆG!3@ÏQ∏Ök3@öôôôôY4@ÖÎQ∏≈4@·zÆG!5@ÏQ∏Ök5@öôôôôY7@ÖÎQ∏≈7@·zÆG!8@öôôôôY9@ÖÎQ∏≈9@·zÆG!:@ÏQ∏Ök:@
+◊£p=ä-@√ı(\èB.@◊£p=
+◊.@ÆG·zî/@\è¬ı(\/@öôôôôY1@ÖÎQ∏≈1@·zÆG!2@ÏQ∏Ök2@ÆG·zÆ2@◊£p=
+◊@Ñ  R  ä  q=
+◊£p@  Ë  z  )\è¬ı(@{ÆG·z@ÕÃÃÃÃÃ@∏ÖÎQ∏@§p=
+◊£@öôôôôô	@ÆG·zÆ@   R∏ÖÎQ@◊   ÕÃÃÃÃÃ@ÖÎQ∏	@H·zÆG	@)\è¬ı(@=  \è¬ı(\@⁄   π   Ω   ®   ï   
+◊£p=
+@X   X  {  ?  fffffÊ;@·zÆG!9@ÏQ∏Ök9@ÆG·zÆ9@fffffÊ9@ÆG·zÆ=@fffffÊ=@   ÖÎQ∏≈<@·zÆG!=@ÏQ∏Ök=@
+◊£p= =@·zÆG!;@ÏQ∏Ök;@ÆG·zÆ;@33333≥.@
+◊£p=ä/@·zÆG!0@ÏQ∏Ök0@
+◊£p= 4@öôôôôY:@ÖÎQ∏≈:@öôôôôY;@ÖÎQ∏≈;@·zÆG!<@ÏQ∏Ök<@ÆG·zÆ<@ﬂ   ™   ÖÎQ∏≈3@·zÆG!4@ÏQ∏Ök4@G LB               Ä                êÄ Ä      ê        êÄ Ä    Ä       ¿  Ä               	 Ä	       
+  
+        Ä                Ä Ä                   Ä     êÄ        Ä Ä      Ä  	      Ä Ä	     êÄ  
+       Ä
+                   Ä                   Ä                   Ä                   Ä               êÄ Ä     ê          ê ! Ä!      ê "  "     Äê # Ä#     ¿ê $  $      ê % Ä%        &  &        ' Ä'        (  (        ) Ä)        *  *        + Ä+        ,  ,        - Ä-        .  .        / Ä/        0  0        1 Ä1        2  2        3 Ä3        4  4        5 Ä5        6  6        7 Ä7        8  8        9 Ä9        :  :        ; Ä;        <  <        = Ä=        >  >        ? Ä?        @   @        A Ä A        B  !B        C Ä!C        D  "D        E Ä"E        F  #F        G Ä#G        H  $H        I Ä$I        J  %J        K Ä%K        L  &L     êÄM Ä&M     êÄN  'N    Ä ÅO Ä'O      ÅP  (P        Q Ä(Q        R  )R        S Ä)S        T  *T        U Ä*U        V  +V        W Ä+W        X  ,X        Y Ä,Y        Z  -Z        [ Ä-[        \  .\        ] Ä.]        ^  /^        _ Ä/_        `  0`        a Ä0a        b  1b        c Ä1c        d  2d        e Ä2e        f  3f        g Ä3g        h  4h        i Ä4i        j  5j        k Ä5k        l  6l        m Ä6m        n  7n        o Ä7o        p  8p        q Ä8q        r  9r        s Ä9s        t  :t        u Ä:u        v  ;v        w Ä;w        x  <x        y Ä<y        z  =z        { Ä={        |  >|        } Ä>}        ~  ?~         Ä?        Ä  @Ä        Å Ä@Å        Ç  AÇ        É ÄAÉ        Ñ  BÑ        Ö ÄBÖ        Ü  CÜ        á ÄCá        à  Dà        â ÄDâ        ä  Eä        ã ÄEã       å  Få        ç ÄFç        é  Gé        è ÄGè        ê  Hê        ë ÄHë        í  Ií        ì ÄIì        î  Jî        ï ÄJï        ñ  Kñ        ó ÄKó        ò  Lò        ô ÄLô        ö  Mö        õ ÄMõ        ú  Nú        ù ÄNù        û  Oû        ü ÄOü        †  P†        ° ÄP°        ¢  Q¢        £ ÄQ£        §  R§        • ÄR•        ¶  S¶        ß ÄSß        ®  T®     Ä  © ÄT©        ™  U™      ∞´ ÄU´      ∞¨  V¨      ∞≠ ÄV≠      ∞Æ  WÆ      ∞Ø ÄWØ        ∞  X∞        ± ÄX±        ≤  Y≤        ≥ ÄY≥    †ê ¥  Z¥    ‡ê µ ÄZµ     ê ∂  [∂    †ê ∑ Ä[∑    ‡ê ∏  \∏     ê π Ä\π     ê ∫ ]∫   Ä ÅªÄ]ª   ¿ Åº ^º     ÅΩÄ^Ω   Ä Åæ _æ   ¿ ÅøÄ_ø     Å¿ `¿   Ä Å¡Ä`¡   ¿ Å¬ a¬     Å√ Äa√     Ä ƒ  bƒ       ≈ Äb≈     Äê ∆  c∆      ê « Äc«        »  d»        … Äd…      Å   e        À ÄeÀ      ÅÃ  fÃ     êÄÕ ÄfÕ      ÅŒ  gŒ      Åœ Ägœ      ê –  h–      —Çh—D8%…“i“H8%…”
+Éi”  FB‘
+j‘  FB’Ñj’j HJ÷k÷ä HJ◊
+Ék◊  FBÿlÿ  FJŸÜlŸÆ  FJ⁄m⁄n  FJ€Üm€é  FJ‹n‹Œ  FJ›Çn›Ë	9%…ﬁoﬁ			9%…ﬂÇoﬂ(	
+	9%…‡p‡H		9%…·Çp·h		9%…‚q‚D
+π$…„áq„Ñ	
+π$…‰r‰‰
+π$…ÂárÂ	π$…ÊsÊ(	π$…ÁásÁH	π$…ËtËHπ$…ÈátÈà	π$…ÍuÍËπ$…ÎàuÎ		˘$…ÏvÏ(		˘$…ÌàvÌH		˘$…ÓwÓH	˘$…ÔàwÔà		˘$…x	
+π$…ÒáxÒ$	
+π$…ÚyÚD	
+π$…ÛâyÛ¶9)…Ù	zÙ	9)…ıâzı&	9)…ˆ	{ˆ∆9)…˜â{˜§9)…¯	|¯	9)…˘â|˘$	9)…˙	}˙ƒ9)…˚â}˚‰9)…¸	~¸Ê9)…˝ä~˝Ë 9’ ˛
+˛!9’ ˇäˇ(!9’  
+Ä I!9’ äÄi!9’ ÅI ˘‘ ãÅâ! ˘‘ Ç	!!˘‘ ãÇ)!"˘‘ ÉI!#˘‘ åÉI $π‘ Ñâ!%π‘ 	åÑ	È &π‘ 
+Ö
+	!'π‘ åÖ)!(π‘ ÜI!)π‘ åÜE $π‘ áÖ!%π‘ åáÂ &π‘ à!'π‘ åà%!(π‘ âE!)π‘ !çâÁ%*9Ÿ !äß%+9Ÿ !çä%,9Ÿ !ã'%-9Ÿ #çãÂ%*9Ÿ #å•%+9Ÿ #çå%,9Ÿ #ç%%-9Ÿ %éçÁ%.:Ÿ %éß%/:Ÿ %éé«%0:Ÿ 'èÂ%.:Ÿ 'éè•%/:Ÿ  'ê ≈%0:Ÿ !)èê!Â%1˙ÿ ")ë"&2˙ÿ #)èë#%3˙ÿ $)í$%%4˙ÿ %+êí%	!5:’ &+ì&)!6:’ '+êì'I!7:’ (+î(I 8:’ )+êî)!5:’ *+ï*%!6:’ ++êï+E!7:’ ,+ñ,E 9:’ --ëñ-Ò!:˙‘Œ.-ó.";˙‘Œ/-ëó/±!<˙‘Œ0-ò0!=˙‘Œ1-ëò11!>˙‘Œ2/ô2( Ç ¡31ìô3( ¬ ¡43ö4( !¡55ïö5, Ç ¡67õ6,  ¬ ¡79óõ7, !!¡8;ú80 "Ç(¡9=ôú90 #¬(¡:?ù:0 $)¡;;õù;0 "Ç$¡<=û<0 #¬$¡=?ùû=0 $%¡>Aü>Â?%˙(…?Cüü?4 &Ç(¡@E †@4 '¬(¡AG°†A4 ()¡BI"°B4@)¢$¡CK£°C4A*‚$¡DM$¢D4B+"%¡EO•¢E4 ,*¡F&£FÒ	C-˙$ÕGQß£G4 .Ç(¡HS(§H4 /¬(¡IU©§I4 0)¡JW*•J4D1¢$¡KY´•K4E2‚$¡L[,¶L4F3"%¡M]≠¶M4 4*¡NA.ßNG%˙(…OAÆßOH%˙(…PA.®P%I%˙(…Q¶®Q
+-˙$ÕR&©R±	-˙$ÕS¶©S	-˙$ÕT&™T1	J-˙$ÕU	Ç™UÂ	:%…V	´V			:%…W	Ç´W%	
+	:%…X	¨XE		:%…Y_Ø¨Y•8 5FRZa0≠Z< 6JB[c±≠[@ 7FB\e2Æ\D 8FB]g≥Æ]D 9HB^i4Ø^H :DB_µØ_H ;DB`k6∞`H <DBa_Ø∞ae8 5FRb_/±bÖ8 5FRc_Ø±c≈8 5FRdm7≤d•L =FNem∑≤eeL =FNfm7≥fÖL =FNgo∏≥gØP >FRho8¥hoP >FRio∏¥ièP >FRjq9µj•T ? FJkqπµkeT ? FJlq9∂lÖT ? FJms∫∂m•T @HJns:∑neT @HJos∫∑oÖT @HJpu;∏p≠X A FJquª∏qmX A FJru;πrçX A FJswºπs•8 B HNtw<∫te8 B HNuwº∫uÖ8 B HNvy=ªv\ C FBw{æªw\ D HBx?ºx\ E DBy}¿ºy` F FBzAΩzk E DJ{¡Ω{ã E DJ|Bæ|d G FB}Å√æ}h H FB~ÉDø~l I HBÖ≈øp J HBÄáF¿Ä'v K FBÅâ«¿Å± L FJÇâG¡Çq L FJÉâ«¡Éë L FJÑâG¬Ñ— L FJÖã»¬ÖëyKM;+…ÜçI√ÜÒxLNª*…áã»√á—yMM;+…àãHƒàQzNM;+…âã»ƒâqzOM;+…äãH≈äÕyMM;+…ãã»≈ãMzNM;+…åãH∆åmzOM;+…çã»∆ççyKM;+…éèJ«é|PO# ¡èç…«èMzQNª*…êçI»êmzRNª*…ëç…»ëMxSNª*…íçI…íÌxLNª*…ìç……ìyTNª*…îçI îQzQNª*…ïç… ïqzRNª*…ñçIÀñQxSNª*…óç…ÀóyTNª*…òëÃòGP˚(ÕôëûÃôßHP˚(ÕöëÕö«IP˚(ÕõìÀÕõÄUQ# AúïLŒúÑ RÉ(AùóÕŒùÑ S√(AûôNœûÑ T)AüïœœüÑ RÉ$A†óP–†Ñ S√*A°ô—–°Ñ T%A¢ïR—¢Ñ RÉ*A£ó”—£Ñ S√*A§ôT“§Ñ T+A•õ’“•ßVUª(…¶õU”¶MUª(…ßõ’”ß'NUª(…®õU‘®GOUª(…©y÷‘©` C (A™ùW’™` V $A´yÿ’´` C *A¨üU÷¨•VWª(…≠ü’÷≠MWª(…ÆüU◊Æ%NWª(…Øü’◊ØEOWª(…∞gYÿ∞` X É(A±°⁄ÿ±` Y √(A≤£[Ÿ≤` Z )A≥•‹Ÿ≥` [ É$A¥g]⁄¥` X √$Aµßﬁ⁄µ` \ %A∂©_€∂` ] *A∑´‡€∑àW^£(A∏≠a‹∏àP_„(AπØ‚‹πàX`#)A∫´c›∫àY^£$Aª≠‰›ªàZ_„$AºØeﬁºà[`#%AΩØÊﬁΩà `*AæëﬂæÁ?P˚(Õøü’ﬂø\Wª(…¿õU‡¿\Uª(…¡±Á‡¡|]a# ¡¬≥h·¬0 bÉ*¡√µÈ·√0 c+¡ƒìj‚ƒÄUQ# A≈1Î‚≈å^£ ¡∆∑l„∆å_d„ ¡«πÌ„«å`e#!¡»ªn‰»ê f A…ΩÔ‰…çïag˚⁄  øpÂ —ïbh;€ ÀøÂÀQñch;€ ÃøpÊÃqñdh;€ ÕøÊÕëïeh;€ Œ¡qÁŒmñfiª⁄ œ¡ÒÁœMîgiª⁄ –¡qË–Ìîhiª⁄ —¡ÒË—ïiiª⁄ “¡qÈ“Qñjiª⁄ ”¡ÒÈ”qñkiª⁄ ‘¡qÍ‘Qîliª⁄ ’¡ÒÍ’Òîhiª⁄ ÷øpÎ÷Õïbh;€ ◊øÎ◊Mñch;€ ÿøpÏÿmñdh;€ ŸøÏŸçïeh;€ ⁄ΩoÌ⁄Õïmg˚⁄ €ΩÔÌ€Mñng˚⁄ ‹ΩoÓ‹mñog˚⁄ ›√ÚÓ›"pj˚‘Œﬁ√rÔﬁ±!qj˚‘Œﬂ√ÚÔﬂ!rj˚‘Œ‡√r‡1!sj˚‘Œ·≈Û·E tkª‘ ‚¡qÒ‚ïiiª⁄ „¡ÒÒ„Mñjiª⁄ ‰«tÚ‰Á%ul˚ÿŒÂ«ÙÚÂ&vl˚ÿŒÊ«tÛÊß%ml˚ÿŒÁ«ÙÛÁ«%nl˚ÿŒË…uÙË&wmªÿ È…ıÙÈß%xmªÿ Í…uıÍ%ymªÿ Î…ııÎ'%zmªÿ Ï…uˆÏG%{mªÿ Ì≈ıˆÌ&wnªÿ Ó≈u˜Ó•%xnªÿ Ô≈ı˜Ô%ynªÿ ≈u¯%%znªÿ Ò≈ı¯ÒE%{nªÿ Úâv˘Úò|o£ ¡ÛÀ˜˘ÛòZp„ ¡ÙÕx˙Ùò}q#!¡ı≈Û˙ı!~kª‘ ˆ≈s˚ˆ%!kª‘ ˜≈Û˚˜E!Äkª‘ 

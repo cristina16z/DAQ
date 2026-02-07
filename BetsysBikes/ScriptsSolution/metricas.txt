@@ -1,0 +1,136 @@
+
+Sales&Quota
+Quota 1ra tabla: Sum({1}   Aggr(     Max({1} QuotaAmount),     SalesPersonID,     QuotaMonth   ) )
+
+
+Sales Metrics
+AvgSales/Order
+Sum(LineSalesAmount) / Count(DISTINCT SalesOrderID)
+
+Avg Sales/Product (por línia de pedido, no pedido único)
+Sum(LineSalesAmount) / Count(SalesOrderDetailID)
+
+
+Sales vs Quota
+Sum(LineSalesAmount) - Sum( Aggr( Max(QuotaAmount), SalesPersonID, QuotaMonth ) )
+
+Orders
+Count(DISTINCT SalesOrderID)
+
+Cost per SalesPerson
+Sum(COGS)
+
+
+Average Order Cost
+Sum(COGS) / Count(DISTINCT SalesOrderID)
+
+
+
+
+Special Metrics by Period
+Avg Order Quantity
+=Avg(OrderQty)
+
+Avg Product Sales
+Avg(LineSalesAmount)
+
+
+Avg of Avg Order Quantity by Sales Order and SalesPerson = AvgAvgOrdQty by SalesOrd and SalesPerson
+Avg(  Aggr(     Avg({1} OrderQty),     SalesOrderID,     SalesPersonID   ) )
+
+
+Avg of Avg Product Sales by Sales Order and salesperson = AvgAvg ProductSales by SalesOrd and SalesPerson
+Avg(Aggr(    Avg( LineSalesAmount),    SalesOrderID,    SalesPersonID  ))
+
+
+
+
+Vendors
+Sum(LineSalesAmount)
+
+
+Shipments
+Count(SalesOrderID)
+
+Delayed Shipments(retrasos)
+Count( {<DiasRetraso={">=1"}>}SalesOrderID)
+
+
+Early/onTime (a tiempo/mes)
+Count({<EsATiempo={1}>} SalesOrderID)
+
+1 Day
+Count({<DiasRetraso={1}>} SalesOrderID)
+
+2 Days
+Count({<DiasRetraso={2}>} SalesOrderID)
+
+3 Days
+Count({<DiasRetraso={3}>} SalesOrderID)
+
+>3 Days ( 4 o +)
+Count({<DiasRetraso={">=4"}>} SalesOrderID)
+
+
+Shipments (pedidos, no linias)
+Count( DISTINCT SalesOrderID)
+
+Delayed Shipments(retrasos)
+Count({<DiasRetraso={">=2"}>} DISTINCT SalesOrderID)
+
+Count({1<DiasRetraso={"<=0"}>} SalesOrderDetailID)
+/ Count({1}SalesOrderDetailID)
+
+
+
+
+Shipments
+Shipment distinct
+Count( DISTINCT (SalesOrderID))
+
+Delayed Shipments Distinct 
+Count(distinct{1<DiasRetraso={">=1"}>} SalesOrderID)
+
+EarlyOnTime
+Count(distinct{1<EsATiempo={1}>} SalesOrderID)
+
+
+1 Day
+Count(distinct{1<DiasRetraso={1}>} SalesOrderID)
+
+2 Days
+Count(distinct{1<DiasRetraso={2}>} SalesOrderID)
+
+3 Days
+Count(distinct{1<DiasRetraso={3}>} SalesOrderID)
+
+>3 Days ( 4 o +)
+Count(distinct{1<DiasRetraso={">=4"}>} SalesOrderID)
+
+Delayed Shipments Distinct %
+Count(DISTINCT {1<DiasRetraso={">=1"}>} SalesOrderID)
+/ Count(DISTINCT SalesOrderID)
+
+
+EarlyOntime%
+Count(DISTINCT {1<EsATiempo={1}>} SalesOrderID)
+/ Count(DISTINCT SalesOrderID)
+
+1Day%
+Count(DISTINCT {1<DiasRetraso={1}>} SalesOrderID)
+/ Count(DISTINCT SalesOrderID)
+
+
+2Day%
+Count(DISTINCT {1<DiasRetraso={2}>} SalesOrderID)
+/ Count(DISTINCT SalesOrderID)
+
+
+3Day%
+Count(DISTINCT {1<DiasRetraso={3}>} SalesOrderID)
+/ Count(DISTINCT SalesOrderID)
+
+
+>3Day%
+Count(DISTINCT {1<DiasRetraso={">=4"}>} SalesOrderID)
+/ Count(DISTINCT SalesOrderID)

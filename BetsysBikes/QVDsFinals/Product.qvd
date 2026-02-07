@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+ <QvdTableHeader>
+   <QvBuildNo>50689</QvBuildNo>
+   <CreatorDoc>C:\Users\cristina.val\Documents\Qlik\Sense\Apps\BetsysBike_Transform.qvf</CreatorDoc>
+   <CreateUtcTime>2026-02-02 10:06:40</CreateUtcTime>
+   <SourceCreateUtcTime></SourceCreateUtcTime>
+   <SourceFileUtcTime></SourceFileUtcTime>
+   <SourceFileSize>-1</SourceFileSize>
+   <StaleUtcTime></StaleUtcTime>
+   <TableName>Product</TableName>
+   <Fields>
+     <QvdFieldHeader>
+       <FieldName>ProductID</FieldName>
+       <BitOffset>0</BitOffset>
+       <BitWidth>9</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>INTEGER</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>266</NoOfSymbols>
+       <Offset>0</Offset>
+       <Length>1330</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+         <String>$integer</String>
+         <String>$key</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>ProductSubcategoryID</FieldName>
+       <BitOffset>46</BitOffset>
+       <BitWidth>6</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>INTEGER</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>35</NoOfSymbols>
+       <Offset>1330</Offset>
+       <Length>175</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+         <String>$integer</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>ProductName</FieldName>
+       <BitOffset>23</BitOffset>
+       <BitWidth>9</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>UNKNOWN</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>266</NoOfSymbols>
+       <Offset>1505</Offset>
+       <Length>6206</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$text</String>
+         <String>$ascii</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>ProductNumber</FieldName>
+       <BitOffset>32</BitOffset>
+       <BitWidth>9</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>UNKNOWN</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>266</NoOfSymbols>
+       <Offset>7711</Offset>
+       <Length>2947</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$text</String>
+         <String>$ascii</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>ProductModelID</FieldName>
+       <BitOffset>9</BitOffset>
+       <BitWidth>7</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>INTEGER</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>107</NoOfSymbols>
+       <Offset>10658</Offset>
+       <Length>535</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+         <String>$integer</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>ProductModelName</FieldName>
+       <BitOffset>16</BitOffset>
+       <BitWidth>7</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>UNKNOWN</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>107</NoOfSymbols>
+       <Offset>11193</Offset>
+       <Length>1881</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$text</String>
+         <String>$ascii</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>StandardCost</FieldName>
+       <BitOffset>64</BitOffset>
+       <BitWidth>8</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>MONEY</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>100</NoOfSymbols>
+       <Offset>13074</Offset>
+       <Length>900</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>ListPrice</FieldName>
+       <BitOffset>96</BitOffset>
+       <BitWidth>7</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>MONEY</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>92</NoOfSymbols>
+       <Offset>13974</Offset>
+       <Length>812</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>MakeFlag</FieldName>
+       <BitOffset>103</BitOffset>
+       <BitWidth>1</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>INTEGER</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>2</NoOfSymbols>
+       <Offset>14786</Offset>
+       <Length>10</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+         <String>$integer</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>ProductLine</FieldName>
+       <BitOffset>84</BitOffset>
+       <BitWidth>3</BitWidth>
+       <Bias>-2</Bias>
+       <NumberFormat>
+         <Type>UNKNOWN</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>4</NoOfSymbols>
+       <Offset>14796</Offset>
+       <Length>12</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$text</String>
+         <String>$ascii</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>ProductSubcategoryName</FieldName>
+       <BitOffset>52</BitOffset>
+       <BitWidth>6</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>UNKNOWN</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>35</NoOfSymbols>
+       <Offset>14808</Offset>
+       <Length>385</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$text</String>
+         <String>$ascii</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>ProductCategoryName</FieldName>
+       <BitOffset>72</BitOffset>
+       <BitWidth>8</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>UNKNOWN</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>4</NoOfSymbols>
+       <Offset>15193</Offset>
+       <Length>42</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$text</String>
+         <String>$ascii</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>VendorID</FieldName>
+       <BitOffset>41</BitOffset>
+       <BitWidth>5</BitWidth>
+       <Bias>-2</Bias>
+       <NumberFormat>
+         <Type>INTEGER</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>27</NoOfSymbols>
+       <Offset>15235</Offset>
+       <Length>135</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+         <String>$integer</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>AverageLeadTime</FieldName>
+       <BitOffset>87</BitOffset>
+       <BitWidth>4</BitWidth>
+       <Bias>-2</Bias>
+       <NumberFormat>
+         <Type>INTEGER</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>12</NoOfSymbols>
+       <Offset>15370</Offset>
+       <Length>60</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+         <String>$integer</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>StandardPrice</FieldName>
+       <BitOffset>58</BitOffset>
+       <BitWidth>6</BitWidth>
+       <Bias>-2</Bias>
+       <NumberFormat>
+         <Type>MONEY</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>52</NoOfSymbols>
+       <Offset>15430</Offset>
+       <Length>448</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>PreferredVendorStatus</FieldName>
+       <BitOffset>80</BitOffset>
+       <BitWidth>2</BitWidth>
+       <Bias>-2</Bias>
+       <NumberFormat>
+         <Type>INTEGER</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>2</NoOfSymbols>
+       <Offset>15878</Offset>
+       <Length>10</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+         <String>$integer</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>ActiveFlag</FieldName>
+       <BitOffset>82</BitOffset>
+       <BitWidth>2</BitWidth>
+       <Bias>-2</Bias>
+       <NumberFormat>
+         <Type>INTEGER</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec>,</Dec>
+         <Thou>.</Thou>
+       </NumberFormat>
+       <NoOfSymbols>1</NoOfSymbols>
+       <Offset>15888</Offset>
+       <Length>5</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$numeric</String>
+         <String>$integer</String>
+       </Tags>
+     </QvdFieldHeader>
+     <QvdFieldHeader>
+       <FieldName>VendorName</FieldName>
+       <BitOffset>91</BitOffset>
+       <BitWidth>5</BitWidth>
+       <Bias>0</Bias>
+       <NumberFormat>
+         <Type>UNKNOWN</Type>
+         <nDec>0</nDec>
+         <UseThou>0</UseThou>
+         <Fmt></Fmt>
+         <Dec></Dec>
+         <Thou></Thou>
+       </NumberFormat>
+       <NoOfSymbols>28</NoOfSymbols>
+       <Offset>15893</Offset>
+       <Length>581</Length>
+       <Comment></Comment>
+       <Tags>
+         <String>$text</String>
+         <String>$ascii</String>
+       </Tags>
+     </QvdFieldHeader>
+   </Fields>
+   <Compression></Compression>
+   <RecordByteSize>13</RecordByteSize>
+   <NoOfRecords>282</NoOfRecords>
+   <Offset>16474</Offset>
+   <Length>3666</Length>
+   <Lineage></Lineage>
+   <Comment></Comment>
+   <EncryptionInfo></EncryptionInfo>
+   <TableTags></TableTags>
+   <ProfilingData></ProfilingData>
+ </QvdTableHeader>
+ Ã  Ä  Å  Æ  Ç  È  É  Ê  Ë  Ì  Í  Î  Ï  Ò  Ó  Õ  Ö  ×  Ù  Ú  Ü  İ  à  â  ã  å  æ  ç  è  é  ë  ì  í  î  ï  ğ  ñ  ò  ó  ô  õ  ö  ÷  ø  ù  ú  û  ü  ı  ş  ÿ                     	  
+                                               !  "  $  %  &  '  (  )  *  +  -  .  /  0  1  3  4  6  7  8  9  :  ;  <  >  ?  @  A  C  D  F  G  I  K  L  Q  R  T  U  V  W  X  Y  Z  [  \  ]  ^  _  `  a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z  {  |  }  ~    €    ‚  ƒ  „  †  ‡  ˆ  ‰  Š  ‹  Œ        ‘  ’  “  ”  •  –  —  ˜  ™  š  ›  œ      Ÿ     ¡  ¢  £  ¤  ¥  ¦  §  ¨  ©  ª  «  ¬  ­  ®  ¯  °  ±  ²  ³  ´  µ  ¶  ·  ¸  ¹  º  »  ¼  ½  ¾  ¿  À  Á  Â  Ã  Ä  Å  Æ  Ç  È  É  Ê  Ë  Ì  Í  Î  Ï  Ğ  Ñ  Ò  Ó  Ô  Õ  Ö  ×  Ø  Ù  Ú  Û  Ü  İ  Ş  ß  à  á  â  ä  å  æ  ç                          
+               "   $                  %                      	                        Sport-100 Helmet, Red Sport-100 Helmet, Black Mountain Bike Socks, M Mountain Bike Socks, L Sport-100 Helmet, Blue AWC Logo Cap Long-Sleeve Logo Jersey, S Long-Sleeve Logo Jersey, M Long-Sleeve Logo Jersey, L Long-Sleeve Logo Jersey, XL HL Road Frame - Red, 62 HL Road Frame - Red, 44 HL Road Frame - Red, 48 LL Road Frame - Black, 58 LL Road Frame - Black, 60 LL Road Frame - Red, 44 LL Road Frame - Red, 48 LL Road Frame - Red, 52 LL Road Frame - Red, 60 LL Road Frame - Red, 62 ML Road Frame - Red, 48 ML Road Frame - Red, 52 LL Road Frame - Black, 44 LL Road Frame - Black, 52 HL Mountain Frame - Silver, 42 HL Mountain Frame - Silver, 48 HL Mountain Frame - Silver, 46 HL Mountain Frame - Black, 42 HL Mountain Frame - Black, 44 HL Mountain Frame - Black, 48 HL Mountain Frame - Black, 38 HL Mountain Frame - Silver, 38 Road-150 Red, 62 Road-150 Red, 44 Road-150 Red, 48 Road-150 Red, 52 Road-150 Red, 56 Road-450 Red, 58 Road-450 Red, 60 Road-450 Red, 44 Road-450 Red, 48 Road-450 Red, 52 Road-650 Red, 58 Road-650 Red, 60 Road-650 Red, 62 Road-650 Red, 44 Road-650 Red, 48 Road-650 Red, 52 Road-650 Black, 58 Road-650 Black, 60 Road-650 Black, 62 Road-650 Black, 44 Road-650 Black, 48 Road-650 Black, 52 Mountain-100 Silver, 38 Mountain-100 Silver, 42 Mountain-100 Silver, 44 Mountain-100 Silver, 48 Mountain-100 Black, 38 Mountain-100 Black, 42 Mountain-100 Black, 44 Mountain-100 Black, 48 Mountain-200 Silver, 38 Mountain-200 Silver, 42 Mountain-200 Silver, 46 Mountain-200 Black, 38 Mountain-200 Black, 42 Mountain-200 Black, 46 Mountain-300 Black, 38 Mountain-300 Black, 40 Mountain-300 Black, 44 Mountain-300 Black, 48 Road-250 Red, 44 Road-250 Red, 48 Road-250 Red, 52 Road-250 Red, 58 Road-250 Black, 44 Road-250 Black, 48 Road-250 Black, 52 Road-250 Black, 58 Road-550-W Yellow, 38 Road-550-W Yellow, 40 Road-550-W Yellow, 42 Road-550-W Yellow, 44 Road-550-W Yellow, 48 LL Fork HL Fork LL Headset ML Headset HL Headset LL Mountain Handlebars ML Mountain Handlebars HL Mountain Handlebars LL Road Handlebars HL Road Handlebars ML Mountain Frame - Black, 38 LL Mountain Front Wheel ML Mountain Front Wheel HL Mountain Front Wheel ML Road Front Wheel HL Road Front Wheel ML Road Frame-W - Yellow, 38 LL Mountain Rear Wheel ML Mountain Rear Wheel HL Mountain Rear Wheel LL Road Rear Wheel ML Road Rear Wheel HL Road Rear Wheel ML Mountain Frame - Black, 40 ML Mountain Frame - Black, 44 ML Mountain Frame - Black, 48 ML Road Frame-W - Yellow, 40 ML Road Frame-W - Yellow, 44 ML Road Frame-W - Yellow, 48 HL Road Frame - Black, 44 HL Road Frame - Black, 48 Men's Sports Shorts, S Cable Lock Minipump Men's Sports Shorts, M Men's Sports Shorts, L Women's Tights, S Women's Tights, M Women's Tights, L Men's Bib-Shorts, S Men's Bib-Shorts, M Men's Bib-Shorts, L Half-Finger Gloves, S Half-Finger Gloves, M Half-Finger Gloves, L Full-Finger Gloves, S Full-Finger Gloves, M Full-Finger Gloves, L Classic Vest, S Classic Vest, M Classic Vest, L Women's Mountain Shorts, S Women's Mountain Shorts, M Women's Mountain Shorts, L Water Bottle - 30 oz. Mountain Bottle Cage Road Bottle Cage Patch Kit/8 Patches Racing Socks, M Racing Socks, L Hitch Rack - 4-Bike Bike Wash - Dissolver Fender Set - Mountain All-Purpose Bike Stand Hydration Pack - 70 oz. Short-Sleeve Classic Jersey, S Short-Sleeve Classic Jersey, M Short-Sleeve Classic Jersey, L Short-Sleeve Classic Jersey, XL HL Touring Frame - Yellow, 60 LL Touring Frame - Yellow, 62 HL Touring Frame - Yellow, 46 HL Touring Frame - Yellow, 50 HL Touring Frame - Yellow, 54 HL Touring Frame - Blue, 46 HL Touring Frame - Blue, 50 HL Touring Frame - Blue, 54 HL Touring Frame - Blue, 60 Rear Derailleur LL Touring Frame - Blue, 50 LL Touring Frame - Blue, 54 LL Touring Frame - Blue, 58 LL Touring Frame - Blue, 62 LL Touring Frame - Yellow, 44 LL Touring Frame - Yellow, 50 LL Touring Frame - Yellow, 58 LL Touring Frame - Blue, 44 ML Mountain Frame-W - Silver, 40 ML Mountain Frame-W - Silver, 42 ML Mountain Frame-W - Silver, 46 Rear Brakes LL Mountain Seat/Saddle ML Mountain Seat/Saddle HL Mountain Seat/Saddle LL Road Seat/Saddle HL Road Seat/Saddle LL Touring Seat/Saddle ML Touring Seat/Saddle HL Touring Seat/Saddle LL Mountain Frame - Silver, 42 LL Mountain Frame - Silver, 44 LL Mountain Frame - Silver, 48 LL Mountain Frame - Silver, 52 Mountain Tire Tube Road Tire Tube Touring Tire Tube LL Mountain Frame - Black, 42 LL Mountain Frame - Black, 44 LL Mountain Frame - Black, 48 LL Mountain Frame - Black, 52 LL Mountain Tire ML Mountain Tire HL Mountain Tire LL Road Tire ML Road Tire HL Road Tire Touring Tire LL Mountain Pedal ML Mountain Pedal HL Mountain Pedal LL Road Pedal ML Road Pedal HL Road Pedal Touring Pedal ML Mountain Frame-W - Silver, 38 LL Mountain Frame - Black, 40 LL Mountain Frame - Silver, 40 Front Derailleur LL Touring Handlebars HL Touring Handlebars Front Brakes LL Crankset ML Crankset HL Crankset Chain Touring-2000 Blue, 60 Touring-1000 Yellow, 46 Touring-1000 Yellow, 50 Touring-1000 Yellow, 54 Touring-1000 Yellow, 60 Touring-3000 Blue, 54 Touring-3000 Blue, 58 Touring-3000 Blue, 62 Touring-3000 Yellow, 44 Touring-3000 Yellow, 50 Touring-3000 Yellow, 54 Touring-3000 Yellow, 58 Touring-3000 Yellow, 62 Touring-1000 Blue, 46 Touring-1000 Blue, 50 Touring-1000 Blue, 54 Touring-1000 Blue, 60 Touring-2000 Blue, 46 Touring-2000 Blue, 50 Touring-2000 Blue, 54 Road-350-W Yellow, 40 Road-350-W Yellow, 42 Road-350-W Yellow, 44 Road-350-W Yellow, 48 Road-750 Black, 58 Touring-3000 Blue, 44 Touring-3000 Blue, 50 Mountain-400-W Silver, 38 Mountain-400-W Silver, 40 Mountain-400-W Silver, 42 Mountain-400-W Silver, 46 Mountain-500 Silver, 40 Mountain-500 Silver, 42 Mountain-500 Silver, 44 Mountain-500 Silver, 48 Mountain-500 Silver, 52 Mountain-500 Black, 40 Mountain-500 Black, 42 Mountain-500 Black, 44 Mountain-500 Black, 48 Mountain-500 Black, 52 LL Bottom Bracket HL Bottom Bracket Road-750 Black, 44 Road-750 Black, 48 Road-750 Black, 52 HL-U509-R HL-U509 SO-B909-M SO-B909-L HL-U509-B CA-1098 LJ-0192-S LJ-0192-M LJ-0192-L LJ-0192-X FR-R92R-62 FR-R92R-44 FR-R92R-48 FR-R38B-58 FR-R38B-60 FR-R38R-44 FR-R38R-48 FR-R38R-52 FR-R38R-60 FR-R38R-62 FR-R72R-48 FR-R72R-52 FR-R38B-44 FR-R38B-52 FR-M94S-42 FR-M94S-52 FR-M94S-46 FR-M94B-42 FR-M94B-44 FR-M94B-48 FR-M94B-38 FR-M94S-38 BK-R93R-62 BK-R93R-44 BK-R93R-48 BK-R93R-52 BK-R93R-56 BK-R68R-58 BK-R68R-60 BK-R68R-44 BK-R68R-48 BK-R68R-52 BK-R50R-58 BK-R50R-60 BK-R50R-62 BK-R50R-44 BK-R50R-48 BK-R50R-52 BK-R50B-58 BK-R50B-60 BK-R50B-62 BK-R50B-44 BK-R50B-48 BK-R50B-52 BK-M82S-38 BK-M82S-42 BK-M82S-44 BK-M82S-48 BK-M82B-38 BK-M82B-42 BK-M82B-44 BK-M82B-48 BK-M68S-38 BK-M68S-42 BK-M68S-46 BK-M68B-38 BK-M68B-42 BK-M68B-46 BK-M47B-38 BK-M47B-40 BK-M47B-44 BK-M47B-48 BK-R89R-44 BK-R89R-48 BK-R89R-52 BK-R89R-58 BK-R89B-44 BK-R89B-48 BK-R89B-52 BK-R89B-58 BK-R64Y-38 BK-R64Y-40 BK-R64Y-42 BK-R64Y-44 BK-R64Y-48 FK-1639 FK-9939 HS-0296 HS-2451 HS-3479 HB-M243 HB-M763 HB-M918 HB-R504 HB-R956 FR-M63B-38 FW-M423 FW-M762 FW-M928 FW-R762 FW-R820 FR-R72Y-38 RW-M423 RW-M762 RW-M928 RW-R623 RW-R762 RW-R820 FR-M63B-40 FR-M63B-44 FR-M63B-48 FR-R72Y-40 FR-R72Y-44 FR-R72Y-48 FR-R92B-44 FR-R92B-48 SH-M897-S LO-C100 PU-0452 SH-M897-M SH-M897-L TG-W091-S TG-W091-M TG-W091-L SB-M891-S SB-M891-M SB-M891-L GL-H102-S GL-H102-M GL-H102-L GL-F110-S GL-F110-M GL-F110-L VE-C304-S VE-C304-M VE-C304-L SH-W890-S SH-W890-M SH-W890-L WB-H098 BC-M005 BC-R205 PK-7098 SO-R809-M SO-R809-L RA-H123 CL-9009 FE-6654 ST-1401 HY-1023-70 SJ-0194-S SJ-0194-M SJ-0194-L SJ-0194-X FR-T98Y-60 FR-T67Y-62 FR-T98Y-46 FR-T98Y-50 FR-T98Y-54 FR-T98U-46 FR-T98U-50 FR-T98U-54 FR-T98U-60 RD-2308 FR-T67U-50 FR-T67U-54 FR-T67U-58 FR-T67U-62 FR-T67Y-44 FR-T67Y-50 FR-T67Y-58 FR-T67U-44 FR-M63S-40 FR-M63S-42 FR-M63S-46 RB-9231 SE-M236 SE-M798 SE-M940 SE-R581 SE-R995 SE-T312 SE-T762 SE-T924 FR-M21S-42 FR-M21S-44 FR-M21S-48 FR-M21S-52 TT-M928 TT-R982 TT-T092 FR-M21B-42 FR-M21B-44 FR-M21B-48 FR-M21B-52 TI-M267 TI-M602 TI-M823 TI-R092 TI-R628 TI-R982 TI-T723 PD-M282 PD-M340 PD-M562 PD-R347 PD-R563 PD-R853 PD-T852 FR-M63S-38 FR-M21B-40 FR-M21S-40 FD-2342 HB-T721 HB-T928 FB-9873 CS-4759 CS-6583 CS-9183 CH-0234 BK-T44U-60 BK-T79Y-46 BK-T79Y-50 BK-T79Y-54 BK-T79Y-60 BK-T18U-54 BK-T18U-58 BK-T18U-62 BK-T18Y-44 BK-T18Y-50 BK-T18Y-54 BK-T18Y-58 BK-T18Y-62 BK-T79U-46 BK-T79U-50 BK-T79U-54 BK-T79U-60 BK-T44U-46 BK-T44U-50 BK-T44U-54 BK-R79Y-40 BK-R79Y-42 BK-R79Y-44 BK-R79Y-48 BK-R19B-58 BK-T18U-44 BK-T18U-50 BK-M38S-38 BK-M38S-40 BK-M38S-42 BK-M38S-46 BK-M18S-40 BK-M18S-42 BK-M18S-44 BK-M18S-48 BK-M18S-52 BK-M18B-40 BK-M18B-42 BK-M18B-44 BK-M18B-48 BK-M18B-52 BB-7421 BB-9108 BK-R19B-44 BK-R19B-48 BK-R19B-52 !               	                                 h   j   ;   <   =   4   6   7   8   :      *   -   .   2   3      {   |   }   ~   M   N         s   t   &               %   o   p   q   r      v   w   y   z   k          
+      €   O   P   Q   R   T   B   A   C      \   ]   ^   U   V   W   X   Y   Z   [   >   ?   @   D   E   F   5   g   /   0   f   c   d   e   b   #   "   $               _   a   Sport-100 Mountain Bike Socks Cycling Cap Long-Sleeve Logo Jersey HL Road Frame LL Road Frame ML Road Frame HL Mountain Frame Road-150 Road-450 Road-650 Mountain-100 Mountain-200 Mountain-300 Road-250 Road-550-W LL Fork HL Fork LL Headset ML Headset HL Headset LL Mountain Handlebars ML Mountain Handlebars HL Mountain Handlebars LL Road Handlebars HL Road Handlebars ML Mountain Frame-W LL Mountain Front Wheel ML Mountain Front Wheel HL Mountain Front Wheel ML Road Front Wheel HL Road Front Wheel ML Road Frame-W LL Mountain Rear Wheel ML Mountain Rear Wheel HL Mountain Rear Wheel LL Road Rear Wheel ML Road Rear Wheel HL Road Rear Wheel ML Mountain Frame Men's Sports Shorts Cable Lock Minipump Women's Tights Men's Bib-Shorts Half-Finger Gloves Full-Finger Gloves Classic Vest Women's Mountain Shorts Water Bottle Mountain Bottle Cage Road Bottle Cage Patch kit Racing Socks Hitch Rack - 4-Bike Bike Wash Fender Set - Mountain All-Purpose Bike Stand Hydration Pack Short-Sleeve Classic Jersey HL Touring Frame LL Touring Frame Rear Derailleur Rear Brakes LL Mountain Seat/Saddle 2 ML Mountain Seat/Saddle 2 HL Mountain Seat/Saddle 2 LL Road Seat/Saddle 1 HL Road Seat/Saddle 2 LL Touring Seat/Saddle ML Touring Seat/Saddle HL Touring Seat/Saddle LL Mountain Frame Mountain Tire Tube Road Tire Tube Touring Tire Tube LL Mountain Tire ML Mountain Tire HL Mountain Tire LL Road Tire ML Road Tire HL Road Tire Touring Tire LL Mountain Pedal ML Mountain Pedal HL Mountain Pedal LL Road Pedal ML Road Pedal HL Road Pedal Touring Pedal Front Derailleur LL Touring Handlebars HL Touring Handlebars Front Brakes LL Crankset ML Crankset HL Crankset Chain Touring-2000 Touring-1000 Touring-3000 Road-350-W Road-750 Mountain-400-W Mountain-500 LL Bottom Bracket HL Bottom Bracket #J{ƒ/,*@=›UŸ+@8gDio°@é·¯?C@üs×%‹@Y·Ñ ”i@tF”öeg@ ‘~û:v@F%ušY‡@sh‘í|†@ÙÎ÷S‡@(í¾Ø…@÷äa¡–ö @¾0™ª¥‹@¨5Í;Nk~@šà@øÂdª`¨@}?5^zÆ“@B>èÙì“@mÅş²{³‚@L¦
+F%»—@ƒ/L¦ÊK˜@Ä±.n£H†@äòÒsP@)í¾0yY@š^.@…|Ğ³YµF@Ôšæ§°K@Ÿ<,ÔšÆ3@®Gáz~;@ĞÕVì/³J@œ3¢´7:g@ñôJY†ø:@&Â†§3W@ú~j¼t©`@uš’[@ÌH¿}Qb@³êsµv@Ğ³Yõ¹zC@-Cëâ2Z@P—n)b@÷_˜LıH@!ôlV‘^@"uqÑc@jMó¾8@      $@=,Ôšæ} @jMóî>@µ¦yB@oÅQ"@ÖÅm4€W/@9´Èv¾¿7@éH.ÿ!-:@•eˆc]Üı?À[ Añã@õ¹ÚŠıå
+@œÄ °rhë?q=
+×£pF@“©‚QÉ@7‰A`åp @Ï÷Sã¥»M@Œ¹k	ù4@À[ AÉD@HPüóÍ‚@ÌîÉÃBûh@×òAÏöJ@n£¼ìh@øSã¥›¤G@L¦
+F%(@âX·Ñ`1@:’ËH_7@¬‹Ûh b@ÿ!ıöuà÷?…ëQ¸a@¨5Í;N±"@æ?¤ß¾n&@®Gáz.*@HPü @4€·@‚b(@s×òA¯%@Ñ‘\şCú1@Å °rh‘;@í<,ÔúA@È˜»–OD@X9´Èv4@ÎQÚTD@Ğ³Yõ¹zS@Õ	h"lx\@ÃÓ+ezf@šwœ¢#ù!@åa¡Ö4™‡@¬‹ÛhÀ'—@,Ôšæ×|@×£p=
+ê@µ7øÂdzu@MóSt<z@ÆÜµ„|Cs@Ü×sFir@)ËÇºø7@ñôJY†øJ@…ëQ¸~A@      #@{®Gáú!@…ëQ¸şH@     ^–@ìQ¸…u@q=
+×£–‚@     R•@fffff•@×£p=Šô«@)\ÂõÇ–@R¸…ëwˆ@®Gáúª@®Gáú]ª@®Gáú¢@®Gáúí¡@)\Âõß@3333³£@)\Âõ‘@×£p=
+‡b@Ház®¯l@š™™™™A@Ãõ(\’Y@…ëQ¸._@…ëQ¸EF@ö(\ÂõN@áz®G^@\Âõ(Ìu@Âõ(\_N@ÍÌÌÌÌ j@=
+×£pÃr@¸…ëQo@)\Âõ t@Ház®ïU@ÍÌÌÌÌ€m@=
+×£pst@\Âõ($\@\Âõ(6q@)\ÂõPv@…ëQ¸şM@   =
+×£pı3@Âõ(\¿R@Âõ(\V@=
+×£p}8@…ëQ¸şB@     ÀO@Âõ(\Q@ö(\Âõ@{®Gáú#@R¸…ëQ@x   ÍÌÌÌÌÌ@{®Gáú5@Ÿ   …ëQ¸~K@…ëQ¸şJ@áz®G_@…ëQ¸Öt@=
+×£p]^@=
+×£pÁv@      Z@…ëQ¸;@R¸…ë‘C@R¸…ëQJ@ÍÌÌÌÌ€p@ìQ¸…ë@áz®G9o@=
+×£pı8@=
+×£pı=@#   =
+×£p}5@ÍÌÌÌÌL@@=
+×£pı<@…ëQ¸>D@ìQ¸…O@Âõ(\?T@Âõ(\ßV@ìQ¸…G@®GázäV@Ház®ïe@¤p=
+×p@¤p=
+×Oy@=
+×£p=4@fffffû’@q=
+×# ¢@ÍÌÌÌÌ2‡@)\Âõ“š@R¸…ëß€@R¸…ëˆ@R¸…ë§@Âõ(\_^@    ÿÿÿÿS M R T Helmets Socks Caps Jerseys Road Frames Mountain Frames Road Bikes Mountain Bikes Forks Headsets Handlebars Wheels Shorts Locks Pumps Tights Bib-Shorts Gloves Vests Bottles and Cages Tires and Tubes Bike Racks Cleaners Fenders Bike Stands Hydration Packs Touring Frames Derailleurs Brakes Saddles Pedals Cranksets Chains Touring Bikes Bottom Brackets Accessories Clothing Components Bikes ğ  &  d  î  :  Œ  
+  (  "     J    ˆ  Ú  t  `    ”  4  z  â  f    2  ä  \  Š        -   <   
+         #                    €*@ÍÌÌÌÌÌ@ö(\Âõ@Ãõ(\Â+@333333@š™™™™¹B@fffffæB@fffffC@     À:@      !@     À8@ÍÌÌÌÌ,@@     @C@     ÀB@     €!@      /@3333337@33333s9@ìQ¸…ëı?ìQ¸…ë@   š™™™™™é?0   q=
+×£p @1      (   )\Âõ¸S@×£p=
+4@=
+×£pı<@…ëQ¸~C@Ház®G@áz®Gá@Âõ(\@ö(\Â5?@ö(\Âµ>@)\ÂõhA@)\Âõ¨A@…ëQ¸~D@…ëQ¸>D@{®Gáš@@{®GáZ@@Âõ(\¯B@Âõ(\ïB@R¸…ë±D@R¸…ëñD@
+×£p=êA@
+×£p=*B@=
+×£pı=@…ëQ¸şF@…ëQ¸şM@{®Gáú-@ÿÿÿÿ    ÿÿÿÿG & K Bicycle Corp. Jeff's Sporting Goods Integrated Sport Products Betsys Bike International Trek Center Fitness Association Team Athletic Co. Green Lake Bike Company Superior Bicycles First Rate Bicycles Chicago City Saddles Hybrid Bicycle Center Hill's Bicycle Service Expert Bike Co Trikes, Inc. Victory Bikes Sport Fan Co. Vista Road Bikes Professional Athletic Consultants Signature Cycles Crowley Sport Greenwood Athletic Company Inline Accessories Jackson Authority Mitchell Sports Compete Enterprises, Inc Bicycle Specialists Varsity Sport Co.         *  €    * Fº	Fº	     * ‚ˆ *È0*ƒÈ0 *È0 *	ƒ	È0$*
+
+ A @„„ A @„ A @„
+… A @…
+ A @…
+… A @…
+ A @…
+… A @…
+	 A @…
+…	 A @…
+ A @††
+ A @†
+ A @…
+… A @…@Q 0‡‡@Q 	0‡@Q 0‡‡@Q 
+0ˆ@Q 0ˆ‡@Q 0ˆ@Q 
+0ˆ‡@Q 0‡  €a @‰!ˆ!€a @‰""€a @‰#ˆ#€a @‰$$€a @‰%‰%€a @Š&	&€a @Š'‰'€a @Š(	(€a @Š)‰)€a @Š*
+*€a @‹+Š+€a @‹,
+,€a @‹-Š-€a @‹.
+.€a @‹/Š/€a @‹0
+0€a @‹1Š1€a @‹2
+2€a @‹3Š3€a @‹4
+4€a @‹5Š5€a @‹66Àq 0Œ7‹7Àq 0Œ88Àq 0Œ9‹9Àq 0Œ::Àq 0;‹;Àq 0<<Àq 0=‹=Àq 0>>Àq 0?Œ?Àq 0@ @Àq 0AŒ AÀq 0B!BÀq 0CŒ!CÀq 0D"DÀq 0E"EÀq 0F#FÀq 0G#GÀq 0H$H€a @‘I$I€a @‘J%J€a @‘K%K€a @‘L&L€a @‘M&M€a @‘N'N€a @‘O'O€a @‘P(P€a @’Q(Q€a @’R)R€a @’S)S€a @’T*T€a @’U *U ‚  “V"+V ‚  ”W$’+W@’  •X&,X@’  –Y(”,Y@’  —Z*-Z€¢ 0˜[,–-[€¢ 0™\..\€¢ 0š]0˜.]€¢ @˜^2/^€¢ @š_4š/_@Q 0›`60`À²  0œa8œ0aÀ² !0b:1bÀ² "0c<1cÀ² #@Ÿd>2dÀ² $@ e@ 2e A %@†fB!3fÀ² &0¡gD¢3gÀ² '0¢hF#4hÀ² (0£iH¤4iÀ² )@¤jJ%5jÀ² *@¥kL¦5kÀ² +@¦lN'6l@Q 0›mN§6m@Q 0›nN'7n@Q 0›o@ 7o A %@†p@ 8p A %@†q@ 8q A %@†r9r A @„s„9s A @„tP(:tÃ(,ª'uR©:uJÓ,- *#(vT*;vŠã,. ª#)wP¨;wÃ0,**'xP(<xÃ0,**'yV«<yÌó4/ª**zV+=zÌó4/ª**{V«={Ìó4/ª**|X,>|90ª*+}X¬>}=0ª*+~X,?~=0ª*+Z­?NA1*4,€Z-@€NA1*4,Z­@NA1*4,‚\.A‚NE2º3-ƒ\®AƒNE2º3-„\.B„NE2º3-…^¯B…$I3ª4.†^/C†$I3ª4.‡^¯C‡$I3ª4.ˆ`0DˆÃL4º3/‰`°D‰ÃL4º3/Š`0EŠÃL4º3/‹b±E‹Ğ4Q5 *:0Œd2FŒĞ4U6 ::1f³FĞ4Y7 J:h4GE]8 *:2jµGFX7Êj5HFX7Ê‘l¶H‘PUa9 *:3’n7I’eY: *:4“p¸I“Ğue; ::5”r9J”†i< ::6•tºJ•P–m= *:7–v;K–È0p>*8—v»K—È0p>*8˜v;L˜È0p>*8™v»L™È0p>*8šx<Mš€¦?P¹›z½M›€¦@Pºœx<Nœ€¦?P¹x¼N€¦?P¹x<O€¦?P¹Ÿx¼OŸ€¦?P¹ x<P €¦?P¹¡x¼P¡€¦?P¹¢x<Q¢€¦?P¹£|¾Q£À¶A »¤z=R¤€¦@Pº¥z½R¥€¦@Pº¦z=S¦€¦@Pº§z½S§€¦@Pº¨z=T¨€¦@Pº©z½T©€¦@Pºªz=Uª€¦@Pº«z½U«€¦@Pº¬4V¬@Q B0¼­4šV­@Q B0¼®4W®@Q B0¼¯~¿W¯ÇuC
+E=°€@X°T×yD;L>°€@X°V×yDºU>±‚ÁX±T×}E;L?±‚ÁX±V×}EºU?²„BY²V×FºU@²„BY²X×F;^@³†ÃY³V×yDÊU>³†ÃY³Z×yDKf>´ˆDZ´T×FKL@´ˆDZ´V×FÊU@µŠÅZµ\×yDZl>¶ŒF[¶\×}EZl?·Ç[·\×FZl@¸H\¸@Q G0Á¹È\¹@Q G0ÁºH]º@Q G0Á»È]»@Q G0Á¼’I^¼E…5 :u0½”Ê^½ E‰H J}B¾–K_¾ E5 Z}0¿È_¿@Q I0ÃÀH`À@Q I0ÃÁÈ`Á@Q I0ÃÂHaÂ@Q I0ÃÃ˜ÌaÃ"E‘J ;…DÃ˜ÌaÃ$E•J :DÄšMbÄ$E™K :EÄšMbÄ"EK ;…EÅœÎbÅ"E¡L ;…FÅœÎbÅE¥L :uFÆOcÆ&E©M K•GÆOcÆ(E­M JGÇ ĞcÇ(E±J JDÇ ĞcÇ&EµJ K•DÈ¢QdÈ E¹N J}HÈ¢QdÈ&E½N K•HÉ¤ÒdÉ EÁO Z}IÉ¤ÒdÉ&EÅO [•IÊ¦SeÊªçÉP:¤JÊ¦SeÊ¬çÉP;®JË¨ÔeËªçÍQ:¤KË¨ÔeË¬çÍQ;®KÌªUfÌ®çÑR:¶LÍ¬ÖfÍ°çÉPÊ¾JÍ¬ÖfÍ²çÉPËÆJÎ®WgÎ²çÍQËÆKÎ®WgÎ°çÍQÊ¾KÏ°ØgÏ´çÑRJÌLĞ²YhĞ¶çÑRÚÕLÑ4šhÑ@Q B0¼ÒHiÒ@Q I0ÃÓÈiÓ@Q G0ÁÔ´ZjÔÀ¶S ÍÕ¶ÛjÕ€¢ TPÎÖ¸\kÖ€¢ UPÏ×ºİk×ÇuC
+E=Ø¼^lØÀ÷V ĞÙ¾ßlÙÀ÷W ÑÚÀ`mÚÀ÷X ÒÛÂámÛ8ÖY
+İSÜÄbnÜ@ZPÔİÆãnİ@[PÕŞÆcoŞ@[PÕßÆãoß@[PÕàÆcpà@[PÕáÈäpá@\PÖâÈdqâ@\PÖãÈäqã@\PÖäÈdrä@\PÖåÈärå@\PÖæÈdsæ@\PÖçÈäsç@\PÖèÈdtè@\PÖéÆãté@[PÕêÆcuê@[PÕëÆãuë@[PÕìÆcvì@[PÕíÄâví@ZPÔîÄbwî@ZPÔïÄâwï@ZPÔğÊexğ€a ]@×ñÊåxñ€a ]@×òÊeyò€a ]@×óÊåyó€a ]@×ôÌfzô€a ^@ØõÈäzõ@\PÖöÈd{ö@\PÖ÷Îç{÷Àq _0ÙøÎg|øÀq _0ÙùÎç|ùÀq _0ÙúÎg}úÀq _0ÙûĞè}ûÀq `0ÚüĞh~üÀq `0ÚıĞè~ıÀq `0ÚşĞhşÀq `0ÚÿĞèÿÀq `0Ú Ñh€ Áq a0ØÑè€Áq a0ØÑhÁq a0ØÑèÁq a0ØÑh‚Áq a0ØÓé‚(b ¸Õjƒ(c ÛÍæƒa ^@ØÍf„a ^@Ø	Íæ„	a ^@Ø
